@@ -1,0 +1,13 @@
+.ucm-ui-button {
+  border: none;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  transition-duration: 0.4s;
+}
+
+.ucm-ui-button:hover {
+  background-color: #4caf50;
+  color: white;
+}

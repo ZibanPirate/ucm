@@ -21,8 +21,10 @@
   "private": true,
   "scripts": {
     "build": "lerna run build:alone --scope=@ucm/ui --include-dependencies --stream",
-    "build:alone": "tsc",
-    "build:alone:watch": "tsc --watch --preserveWatchOutput",
+    "build:alone": "npm-run-all --parallel \"build:tsc {@}\" \"build:sass {@}\" --",
+    "build:alone:watch": "npm-run-all --parallel \"build:tsc -- --watch --preserveWatchOutput {@}\" \"build:sass -- --watch {@}\" --",
+    "build:sass": "sass src:dist",
+    "build:tsc": "tsc",
     "build:watch": "yarn build & yarn lerna run build:alone:watch --scope=@ucm/ui --include-dependencies --parallel",
     "clean": "lerna run clean:alone --scope=@ucm/ui --include-dependencies --stream",
     "clean:alone": "rimraf dist coverage",

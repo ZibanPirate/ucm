@@ -1,4 +1,5 @@
 import "../styles/globals.css";
+import "@ucm/ui/dist/button/index.css";
 
 import type { AppProps } from "next/app";
 
