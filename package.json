@@ -3,10 +3,17 @@
   "lint-staged": {
     "**/package.json": [
       "syncpack format"
+    ],
+    "./*.*": [
+      "prettier --config ./packages/tooling/.prettierrc --ignore-path ./packages/tooling/.prettierignore --loglevel warn --write"
     ]
   },
   "private": true,
   "scripts": {
+    "lint": "yarn lint:alone",
+    "lint:alone": "lerna run lint:alone --parallel",
+    "lint:fix": "yarn lint:fix:alone",
+    "lint:fix:alone": "lerna run lint:fix:alone --parallel",
     "lint:staged": "lerna exec --since HEAD --concurrency 1 --stream -- lint-staged && lint-staged",
     "postinstall": "(husky install && husky set .husky/pre-commit \"yarn lint:staged\") || exit 0"
   },

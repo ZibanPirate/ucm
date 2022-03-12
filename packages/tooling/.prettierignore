@@ -1,0 +1,10 @@
+node_modules/
+coverage/
+
+./.*
+.gitignore
+*.tsbuildinfo
+*.ico
+*.lock
+*.snap
+*.prettierignore
