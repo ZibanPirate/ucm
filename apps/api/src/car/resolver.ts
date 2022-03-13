@@ -124,7 +124,6 @@ export class CarResolver {
       result,
       filters: [
         { type: "options", label: "Make", name: "make", values: Object.keys(makeOptions) },
-        { type: "options", label: "Model", name: "model", values: Object.keys(modelOptions) },
         {
           type: "options",
           label: "First Registration",
@@ -133,12 +132,6 @@ export class CarResolver {
         },
         { type: "options", label: "Fuel", name: "fuel", values: Object.keys(fuelOptions) },
         { type: "options", label: "Gearbox", name: "gearbox", values: Object.keys(gearboxOptions) },
-        {
-          type: "options",
-          label: "Exterior Color",
-          name: "exteriorColor",
-          values: Object.keys(exteriorColorOptions),
-        },
         {
           type: "options",
           label: "Category",
@@ -162,6 +155,13 @@ export class CarResolver {
           label: "Price",
           name: "price",
           values: priceRange.map((number) => String(number)),
+        },
+        { type: "options", label: "Model", name: "model", values: Object.keys(modelOptions) },
+        {
+          type: "options",
+          label: "Exterior Color",
+          name: "exteriorColor",
+          values: Object.keys(exteriorColorOptions),
         },
       ],
     };

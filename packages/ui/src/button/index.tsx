@@ -10,10 +10,11 @@ const buttonSizeToHTMLFontSizeMap: Record<ButtonSize, string> = {
   xl: "x-large",
 };
 
-export const Button: FC<{ size?: ButtonSize; stretch?: boolean }> = ({
+export const Button: FC<{ size?: ButtonSize; stretch?: boolean; onClick?: () => void }> = ({
   children,
   size = "md",
   stretch = false,
+  onClick = () => null,
 }) => {
   return (
     <button
@@ -22,6 +23,7 @@ export const Button: FC<{ size?: ButtonSize; stretch?: boolean }> = ({
         fontSize: buttonSizeToHTMLFontSizeMap[size],
         ...(stretch ? { flex: "1" } : {}),
       }}
+      onClick={onClick}
     >
       {children}
     </button>
