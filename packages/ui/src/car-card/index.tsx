@@ -5,24 +5,23 @@ import { Text } from "../text";
 import { Toolbar } from "../toolbar";
 
 export const CarCard: FC<{
-  imageURL: string;
-  manufacturer: string;
+  image: string;
+  make: string;
   model: string;
   price: number;
-}> = ({ imageURL, manufacturer, model, price }) => (
+  description: string;
+}> = ({ image, make, model, price, description }) => (
   <div style={{ width: imageSizeToStyle["md"], backgroundColor: "whitesmoke" }}>
-    <Image url={imageURL} />
+    <Image url={image} />
     <br />
-    <Text size="lg" margin={0.5}>
-      {model}
+    <Text size="lg" margin={"0.3rem .6rem"}>
+      {`${make} ${model}`}
     </Text>
     <br />
-    <Toolbar itemsAlignment="space-between">
-      <Text size="sm" margin={0.5}>
-        {manufacturer}
-      </Text>
-      <Text size="sm" margin={0.5}>{`€${price.toFixed(2)}`}</Text>
-    </Toolbar>
+    <Text size="md" margin={"0.3rem .6rem"}>{`€${price.toFixed(2)}`}</Text>
     <br />
+    <Text size="sm" margin={"0.3rem .6rem .6rem"}>
+      {description}
+    </Text>
   </div>
 );

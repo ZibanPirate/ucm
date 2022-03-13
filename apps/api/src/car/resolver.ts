@@ -23,9 +23,9 @@ class CarsArgs {
 }
 
 @ObjectType()
-class Cars {
+export class CarsQuery<CarFields extends keyof Car = keyof Car> {
   @Field(() => [Car])
-  result!: Car[];
+  result!: Pick<Car, CarFields>[];
 
   @Field(() => [FilterOption])
   filters!: FilterOption[];
@@ -52,8 +52,10 @@ export class CarResolver {
     return cars.find((car) => car.offerID === id);
   }
 
-  @Query(() => Cars)
-  cars(@Args() { skip, take, filters }: CarsArgs): Promise<Cars> {
+  @Query(() => CarsQuery)
+  async cars<CarFields extends keyof Car>(
+    @Args() { skip, take, filters }: CarsArgs,
+  ): Promise<CarsQuery<CarFields>> {
     const makeOptions: Record<string, boolean> = {};
     const modelOptions: Record<string, boolean> = {};
     const firstRegistrationOptions: Record<string, boolean> = {};
@@ -117,7 +119,9 @@ export class CarResolver {
       })
       .slice(skip, skip + take);
 
-    return Promise.resolve({
+    await new Promise((resolve) => setTimeout(() => resolve({}), 500));
+
+    return {
       result,
       filters: [
         { type: "options", label: "Make", name: "make", values: Object.keys(makeOptions) },
@@ -161,6 +165,6 @@ export class CarResolver {
           values: priceRange.map((number) => String(number)),
         },
       ],
-    });
+    };
   }
 }

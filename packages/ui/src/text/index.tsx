@@ -10,16 +10,17 @@ const textSizeToHTMLFontSizeMap: Record<TextSize, string> = {
   xl: "x-large",
 };
 
-export const Text: FC<{ size?: TextSize; margin?: number }> = ({
+export const Text: FC<{ size?: TextSize; margin?: string }> = ({
   children,
   size = "md",
-  margin = 0,
+  margin = "initial",
 }) => {
   return (
     <span
       style={{
         fontSize: textSizeToHTMLFontSizeMap[size],
-        margin: `${margin / 3}rem`,
+        margin,
+        display: "inline-block",
       }}
     >
       {children}
