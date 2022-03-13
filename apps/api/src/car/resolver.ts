@@ -82,8 +82,10 @@ export class CarResolver {
               case "power":
               case "price":
                 return (
-                  (car[filterName] as number) > Number(filtersRecord[filterName]?.[0]) &&
-                  (car[filterName] as number) < Number(filtersRecord[filterName]?.[1])
+                  (Number(filtersRecord[filterName]?.[0]) === 0 ||
+                    (car[filterName] as number) > Number(filtersRecord[filterName]?.[0])) &&
+                  (Number(filtersRecord[filterName]?.[1]) === 0 ||
+                    (car[filterName] as number) < Number(filtersRecord[filterName]?.[1]))
                 );
 
               case "firstRegistration":
@@ -101,24 +103,25 @@ export class CarResolver {
           },
         );
 
-        if (!matched) return false;
+        (matched || filtersRecord["make"]) && (makeOptions[car.make] = true);
+        (matched || filtersRecord["model"]) && (modelOptions[car.model] = true);
+        (matched || filtersRecord["firstRegistration"]) &&
+          (firstRegistrationOptions[getYearFromFirstRegistration(car.firstRegistration)] = true);
+        (matched || filtersRecord["fuel"]) && (fuelOptions[car.fuel] = true);
+        (matched || filtersRecord["gearbox"]) && (gearboxOptions[car.gearbox] = true);
+        (matched || filtersRecord["exteriorColor"]) &&
+          (exteriorColorOptions[car.exteriorColor] = true);
+        (matched || filtersRecord["category"]) && (categoryOptions[car.category] = true);
+        (matched || filtersRecord["mileage"]) &&
+          (mileageRange = stretchRange(mileageRange, car.mileage));
+        (matched || filtersRecord["power"]) && (powerRange = stretchRange(powerRange, car.power));
+        (matched || filtersRecord["price"]) && (priceRange = stretchRange(priceRange, car.price));
 
-        makeOptions[car.make] = true;
-        modelOptions[car.model] = true;
-        firstRegistrationOptions[getYearFromFirstRegistration(car.firstRegistration)] = true;
-        fuelOptions[car.fuel] = true;
-        gearboxOptions[car.gearbox] = true;
-        exteriorColorOptions[car.exteriorColor] = true;
-        categoryOptions[car.category] = true;
-        mileageRange = stretchRange(mileageRange, car.mileage);
-        powerRange = stretchRange(powerRange, car.power);
-        priceRange = stretchRange(priceRange, car.price);
-
-        return true;
+        return matched;
       })
       .slice(skip, skip + take);
 
-    await new Promise((resolve) => setTimeout(() => resolve({}), 500));
+    await new Promise((resolve) => setTimeout(() => resolve({}), 0));
 
     return {
       result,

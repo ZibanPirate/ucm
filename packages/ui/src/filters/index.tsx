@@ -29,7 +29,7 @@ export type Filter = OptionsFilter | RangeFilter;
 
 export const Filters: FC<{
   filters: Filter[];
-  onChange?: (filterName: string, optionName: string, checked: boolean) => void;
+  onChange?: (filterName: string, optionName: string, value: number | boolean) => void;
 }> = ({ onChange = () => null, filters }) => {
   return (
     <div style={{ padding: "0 1rem 1rem" }}>
@@ -43,12 +43,25 @@ export const Filters: FC<{
           <div>
             {filter.type === "options" ? (
               filter.options.map((option, index) => (
-                <CheckBox key={index} label={option.name} checked={option.checked} />
+                <CheckBox
+                  key={index}
+                  label={option.name}
+                  checked={option.checked}
+                  onChange={(checked) => onChange(filter.name, option.name, checked)}
+                />
               ))
             ) : (
               <>
-                <NumberInput value={filter.options.min} label={"Min"} />
-                <NumberInput value={filter.options.max} label={"Max"} />
+                <NumberInput
+                  value={filter.options.min}
+                  label={"Min"}
+                  onChange={(value) => onChange(filter.name, "min", value)}
+                />
+                <NumberInput
+                  value={filter.options.max}
+                  label={"Max"}
+                  onChange={(value) => onChange(filter.name, "max", value)}
+                />
               </>
             )}
           </div>

@@ -7,11 +7,13 @@ import { Filter, Filters } from "@ucm/ui/dist/filters";
 import { Grid } from "@ucm/ui/dist/grid";
 import { Popup } from "@ucm/ui/dist/popup";
 import { Toolbar } from "@ucm/ui/dist/toolbar";
-import type { NextPage } from "next";
+import type { GetServerSideProps, NextPage } from "next";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 
 import { initializeApollo } from "../providers/apollo";
+import { extractSelectedFilters } from "./utils/filters";
+import { recordToURLQuery, urlQueryToRecord } from "./utils/url-query";
 
 const carsQueryFields = [
   "image",
@@ -42,25 +44,26 @@ query Cars($take: Int, $skip: Int, $filters: [String!]) {
 }
 `;
 
-const Home: NextPage = () => {
-  const { data, loading, refetch } =
-    useQuery<{ cars: CarsQuery<typeof carsQueryFields[number]> }>(carsQuery);
-  const [filters, setFilters] = useState<Filter[]>([]);
-  const [shownPopups, setShownPopups] = useState({ filters: true });
+const Home: NextPage<{ graphQLFilters?: string[] }> = ({ graphQLFilters }) => {
+  const [filters, setFilters] = useState<Filter[] | null>(null);
+  const [shownPopups, setShownPopups] = useState({ filters: false });
   const router = useRouter();
+
+  const { data, loading, refetch } = useQuery<{ cars: CarsQuery<typeof carsQueryFields[number]> }>(
+    carsQuery,
+    {
+      variables: {
+        filters:
+          graphQLFilters ||
+          (filters ? extractSelectedFilters(filters).graphQLQueryFilters : undefined),
+      },
+    },
+  );
 
   useEffect(() => {
     if (!data) return;
 
-    const filtersOnURLQuery = Object.keys(router.query).reduce<Record<string, string[]>>(
-      (pV, filterName) => {
-        const filterValue = Array.isArray(router.query[filterName])
-          ? (router.query[filterName]?.[0] as string)
-          : (router.query[filterName] as string);
-        return filterValue ? { ...pV, [filterName]: filterValue.split(",") } : pV;
-      },
-      {},
-    );
+    const filtersOnURLQuery = urlQueryToRecord(router.query);
 
     setFilters(
       data.cars.filters.map(({ label, name, type, values }) => {
@@ -102,7 +105,39 @@ const Home: NextPage = () => {
         shown={shownPopups.filters}
         onClose={() => setShownPopups({ ...shownPopups, filters: false })}
       >
-        <Filters filters={filters} />
+        <Filters
+          filters={filters || []}
+          onChange={(filterName, optionName, value) => {
+            const newFilters = (filters || []).map((filter) => {
+              if (filter.name !== filterName) return filter;
+              switch (filter.type) {
+                case "options":
+                  return {
+                    ...filter,
+                    options: filter.options.map((option) =>
+                      option.name !== optionName
+                        ? option
+                        : { ...option, checked: value as boolean },
+                    ),
+                  };
+
+                case "range":
+                  return {
+                    ...filter,
+                    options: { ...filter.options, [optionName]: value },
+                  };
+              }
+            });
+            setFilters(newFilters);
+            const { newFiltersOnURLQuery, graphQLQueryFilters } =
+              extractSelectedFilters(newFilters);
+
+            refetch({ filters: graphQLQueryFilters });
+
+            const newURL = `/${recordToURLQuery(newFiltersOnURLQuery)}`;
+            router.push(newURL, undefined, { shallow: true });
+          }}
+        />
       </Popup>
       <Grid>
         {loading
@@ -124,10 +159,17 @@ const Home: NextPage = () => {
   );
 };
 
-export const getServerSideProps = async () => {
+export const getServerSideProps: GetServerSideProps = async ({ query }) => {
   const apolloClient = initializeApollo();
-  await apolloClient.query({ query: carsQuery });
-  return { props: { initialApolloState: apolloClient.cache.extract() } };
+
+  const filtersOnURLQuery = urlQueryToRecord(query);
+  const filters = Object.keys(filtersOnURLQuery).map(
+    (filterName) => `${filterName}:${filtersOnURLQuery[filterName].join(",")}`,
+  );
+
+  await apolloClient.query({ query: carsQuery, variables: { filters } });
+
+  return { props: { initialApolloState: apolloClient.cache.extract(), graphQLFilters: filters } };
 };
 
 export default Home;
