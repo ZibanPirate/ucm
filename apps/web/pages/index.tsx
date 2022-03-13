@@ -7,37 +7,40 @@ import { Grid } from "@ucm/ui/dist/grid";
 import { Toolbar } from "@ucm/ui/dist/toolbar";
 import type { NextPage } from "next";
 
-const Home: NextPage = () => {
-  const carsQueryFields = [
-    "image",
-    "model",
-    "make",
-    "price",
-    "mileage",
-    "firstRegistration",
-    "fuel",
-    "power",
-    "consumptionCombined",
-    "consumptionUnit",
-    "co2",
-  ] as const;
-  const { data, loading } = useQuery<{ cars: CarsQuery<typeof carsQueryFields[number]> }>(gql`
-    query Cars($take: Int, $skip: Int, $filters: [String!]) {
-      cars(take: $take, skip: $skip, filters: $filters) {
-        result {
-          ${carsQueryFields.join("\n")}
-        }
-        filters {
-          name
-          type
-          label
-          values
-        }
-      }
-    }
-  `);
+import { initializeApollo } from "../providers/apollo";
 
-  console.log({ data });
+const carsQueryFields = [
+  "image",
+  "model",
+  "make",
+  "price",
+  "mileage",
+  "firstRegistration",
+  "fuel",
+  "power",
+  "consumptionCombined",
+  "consumptionUnit",
+  "co2",
+] as const;
+const carsQuery = gql`
+query Cars($take: Int, $skip: Int, $filters: [String!]) {
+  cars(take: $take, skip: $skip, filters: $filters) {
+    result {
+      ${carsQueryFields.join("\n")}
+    }
+    filters {
+      name
+      type
+      label
+      values
+    }
+  }
+}
+`;
+
+const Home: NextPage = () => {
+  const { data, loading } =
+    useQuery<{ cars: CarsQuery<typeof carsQueryFields[number]> }>(carsQuery);
 
   return (
     <Container>
@@ -63,6 +66,12 @@ const Home: NextPage = () => {
       </Grid>
     </Container>
   );
+};
+
+export const getServerSideProps = async () => {
+  const apolloClient = initializeApollo();
+  await apolloClient.query({ query: carsQuery });
+  return { props: { initialApolloState: apolloClient.cache.extract() } };
 };
 
 export default Home;

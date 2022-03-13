@@ -74,7 +74,6 @@ export class CarResolver {
           const [filterName, CSVs] = cV.split(":");
           return { ...pV, [filterName]: CSVs.split(",") };
         }, {});
-        console.log({ filters, filtersRecord });
 
         const matched = (Object.keys(filtersRecord) as Array<keyof typeof filtersRecord>).every(
           (filterName) => {
