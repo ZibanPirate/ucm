@@ -8,6 +8,7 @@ import { Grid } from "@ucm/ui/dist/grid";
 import { Popup } from "@ucm/ui/dist/popup";
 import { Toolbar } from "@ucm/ui/dist/toolbar";
 import type { NextPage } from "next";
+import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 
 import { initializeApollo } from "../providers/apollo";
@@ -45,10 +46,21 @@ const Home: NextPage = () => {
   const { data, loading, refetch } =
     useQuery<{ cars: CarsQuery<typeof carsQueryFields[number]> }>(carsQuery);
   const [filters, setFilters] = useState<Filter[]>([]);
-  const [shownPopups, setShownPopups] = useState({ filters: false });
+  const [shownPopups, setShownPopups] = useState({ filters: true });
+  const router = useRouter();
 
   useEffect(() => {
     if (!data) return;
+
+    const filtersOnURLQuery = Object.keys(router.query).reduce<Record<string, string[]>>(
+      (pV, filterName) => {
+        const filterValue = Array.isArray(router.query[filterName])
+          ? (router.query[filterName]?.[0] as string)
+          : (router.query[filterName] as string);
+        return filterValue ? { ...pV, [filterName]: filterValue.split(",") } : pV;
+      },
+      {},
+    );
 
     setFilters(
       data.cars.filters.map(({ label, name, type, values }) => {
@@ -58,14 +70,20 @@ const Home: NextPage = () => {
               label,
               name,
               type,
-              options: { min: 0, max: 0 },
+              options: {
+                min: Number(filtersOnURLQuery[name]?.[0] || 0),
+                max: Number(filtersOnURLQuery[name]?.[1] || 0),
+              },
             };
           case "options":
             return {
               label,
               name,
               type,
-              options: values.map((value) => ({ name: value, checked: false })),
+              options: values.map((value) => ({
+                name: value,
+                checked: filtersOnURLQuery[name]?.includes(value),
+              })),
             };
         }
       }),

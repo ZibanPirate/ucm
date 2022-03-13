@@ -41,13 +41,16 @@ export const Filters: FC<{
             </Text>
           </div>
           <div>
-            {filter.type === "options"
-              ? filter.options.map((option, index) => (
-                  <CheckBox key={index} label={option.name} checked={option.checked} />
-                ))
-              : Object.keys(filter.options).map((name, index) => (
-                  <NumberInput key={index} value={0} label={name} />
-                ))}
+            {filter.type === "options" ? (
+              filter.options.map((option, index) => (
+                <CheckBox key={index} label={option.name} checked={option.checked} />
+              ))
+            ) : (
+              <>
+                <NumberInput value={filter.options.min} label={"Min"} />
+                <NumberInput value={filter.options.max} label={"Max"} />
+              </>
+            )}
           </div>
         </div>
       ))}
