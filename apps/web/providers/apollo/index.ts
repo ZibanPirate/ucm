@@ -18,7 +18,21 @@ const createApolloClient = () =>
   new ApolloClient({
     ssrMode: typeof window === "undefined",
     link: createIsomorphLink(),
-    cache: new InMemoryCache(),
+    cache: new InMemoryCache({
+      typePolicies: {
+        Query: {
+          fields: {
+            cars: {
+              keyArgs: false,
+              merge: (existing, incoming) => ({
+                ...incoming,
+                result: [...(existing?.result || []), ...incoming.result],
+              }),
+            },
+          },
+        },
+      },
+    }),
   });
 
 export const initializeApollo = (initialState: NormalizedCacheObject | null = null) => {

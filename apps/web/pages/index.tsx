@@ -5,6 +5,7 @@ import { CarCard } from "@ucm/ui/dist/car-card";
 import { Container } from "@ucm/ui/dist/container";
 import { Filter, Filters } from "@ucm/ui/dist/filters";
 import { Grid } from "@ucm/ui/dist/grid";
+import { InViewport } from "@ucm/ui/dist/in-viewport";
 import { Popup } from "@ucm/ui/dist/popup";
 import { Toolbar } from "@ucm/ui/dist/toolbar";
 import type { GetServerSideProps, NextPage } from "next";
@@ -47,18 +48,20 @@ query Cars($take: Int, $skip: Int, $filters: [String!]) {
 const Home: NextPage<{ graphQLFilters?: string[] }> = ({ graphQLFilters }) => {
   const [filters, setFilters] = useState<Filter[] | null>(null);
   const [shownPopups, setShownPopups] = useState({ filters: false });
+  const [infiniteScroll, setInfiniteScroll] = useState({ eod: false });
+
   const router = useRouter();
 
-  const { data, loading, refetch } = useQuery<{ cars: CarsQuery<typeof carsQueryFields[number]> }>(
-    carsQuery,
-    {
-      variables: {
-        filters:
-          graphQLFilters ||
-          (filters ? extractSelectedFilters(filters).graphQLQueryFilters : undefined),
-      },
+  const { data, loading, refetch, fetchMore } = useQuery<{
+    cars: CarsQuery<typeof carsQueryFields[number]>;
+  }>(carsQuery, {
+    variables: {
+      filters:
+        graphQLFilters ||
+        (filters ? extractSelectedFilters(filters).graphQLQueryFilters : undefined),
+      take: 12,
     },
-  );
+  });
 
   useEffect(() => {
     if (!data) return;
@@ -129,6 +132,7 @@ const Home: NextPage<{ graphQLFilters?: string[] }> = ({ graphQLFilters }) => {
               }
             });
             setFilters(newFilters);
+            setInfiniteScroll({ eod: false });
             const { newFiltersOnURLQuery, graphQLQueryFilters } =
               extractSelectedFilters(newFilters);
 
@@ -155,6 +159,15 @@ const Home: NextPage<{ graphQLFilters?: string[] }> = ({ graphQLFilters }) => {
               />
             ))}
       </Grid>
+      <InViewport
+        onVisibilityChanged={async (action) => {
+          if (action === "entered" && !infiniteScroll.eod) {
+            const skip = data?.cars.result.length || 0;
+            const moreResults = await fetchMore({ variables: { skip } });
+            setInfiniteScroll({ eod: moreResults.data.cars.result.length <= 0 });
+          }
+        }}
+      />
     </Container>
   );
 };
@@ -167,7 +180,7 @@ export const getServerSideProps: GetServerSideProps = async ({ query }) => {
     (filterName) => `${filterName}:${filtersOnURLQuery[filterName].join(",")}`,
   );
 
-  await apolloClient.query({ query: carsQuery, variables: { filters } });
+  await apolloClient.query({ query: carsQuery, variables: { filters, take: 12 } });
 
   return { props: { initialApolloState: apolloClient.cache.extract(), graphQLFilters: filters } };
 };
