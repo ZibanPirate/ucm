@@ -28,6 +28,7 @@ const carsQueryFields = [
   "consumptionCombined",
   "consumptionUnit",
   "co2",
+  "offerID",
 ] as const;
 const carsQuery = gql`
 query Cars($take: Int, $skip: Int, $filters: [String!]) {
@@ -150,6 +151,7 @@ const Home: NextPage<{ graphQLFilters?: string[] }> = ({ graphQLFilters }) => {
           ? "Error Loading, please try again later :("
           : data.cars.result.map((car, index) => (
               <CarCard
+                offerID={car.offerID}
                 key={index}
                 image={car.image}
                 make={car.make}
@@ -172,7 +174,13 @@ const Home: NextPage<{ graphQLFilters?: string[] }> = ({ graphQLFilters }) => {
   );
 };
 
-export const getServerSideProps: GetServerSideProps = async ({ query }) => {
+export const getServerSideProps: GetServerSideProps = async ({ query, req }) => {
+  const isCSR = !req || (req.url && req.url.startsWith("/_next/data"));
+
+  if (isCSR) {
+    return { props: {} };
+  }
+
   const apolloClient = initializeApollo();
 
   const filtersOnURLQuery = urlQueryToRecord(query);

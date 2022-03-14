@@ -31,6 +31,8 @@ export class CarsQuery<CarFields extends keyof Car = keyof Car> {
   filters!: FilterOption[];
 }
 
+export type CarQuery<CarFields extends keyof Car = keyof Car> = Pick<Car, CarFields>;
+
 type CarFilterName = keyof Pick<
   Car,
   | "make"
@@ -48,8 +50,8 @@ type CarFilterName = keyof Pick<
 @Resolver()
 export class CarResolver {
   @Query(() => Car)
-  async car(@Arg("id") id: string): Promise<Car | undefined> {
-    return cars.find((car) => car.offerID === id);
+  async car(@Arg("offerID") offerID: string): Promise<CarQuery | undefined> {
+    return cars.find((car) => car.offerID === offerID);
   }
 
   @Query(() => CarsQuery)
