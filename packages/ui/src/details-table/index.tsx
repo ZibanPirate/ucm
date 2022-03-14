@@ -27,13 +27,16 @@ export const DetailsTable: FC<{
   <div>
     {items.map(({ label, fields }, index) => (
       <div key={index}>
-        <Text size="md">{label}</Text>
+        <Text size="md" margin=".3rem ">
+          {label}
+        </Text>
+        <hr />
         {Object.keys(fields).map((key, keyIndex) => {
           const field = fields[key];
           const value = values[key];
           return (
             <Fragment key={keyIndex}>
-              <Toolbar itemsAlignment="space-between">
+              <Toolbar itemsAlignment="space-between" margin="0 .3rem">
                 <Text size="sm">{field?.label}</Text>
                 <Text size="sm">{field?.mapper?.(value, mapperParams) || value}</Text>
               </Toolbar>

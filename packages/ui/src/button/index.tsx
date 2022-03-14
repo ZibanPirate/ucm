@@ -16,13 +16,22 @@ export const Button: FC<{
   stretch?: boolean;
   onClick?: () => void;
   link?: string;
-}> = ({ children, size = "md", stretch = false, onClick = () => null, link }) => {
+  margin?: string;
+}> = ({
+  children,
+  size = "md",
+  stretch = false,
+  onClick = () => null,
+  link,
+  margin = "initial",
+}) => {
   const button = (
     <button
       className="ucm-ui-button"
       style={{
         fontSize: buttonSizeToHTMLFontSizeMap[size],
         ...(stretch ? { flex: "1" } : {}),
+        margin,
       }}
       onClick={onClick}
     >

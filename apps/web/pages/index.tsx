@@ -99,10 +99,8 @@ const Home: NextPage<{ graphQLFilters?: string[] }> = ({ graphQLFilters }) => {
 
   return (
     <Container>
-      <Toolbar itemsAlignment="space-around">
-        <Button stretch onClick={() => setShownPopups({ ...shownPopups, filters: true })}>
-          Filters
-        </Button>
+      <Toolbar margin="1rem 0">
+        <Button onClick={() => setShownPopups({ ...shownPopups, filters: true })}>Filters</Button>
       </Toolbar>
       <br />
       <Popup

@@ -17,9 +17,10 @@ const toolbarItemsAlignmentTo: Record<ToolbarItemsAlignment, string> = {
   end: "end",
 };
 
-export const Toolbar: FC<{ itemsAlignment?: ToolbarItemsAlignment }> = ({
+export const Toolbar: FC<{ itemsAlignment?: ToolbarItemsAlignment; margin?: string }> = ({
   children,
   itemsAlignment = "start",
+  margin = "initial",
 }) => {
   return (
     <div
@@ -27,6 +28,7 @@ export const Toolbar: FC<{ itemsAlignment?: ToolbarItemsAlignment }> = ({
         display: "flex",
         flexDirection: "row",
         flex: "1",
+        margin,
         justifyContent: toolbarItemsAlignmentTo[itemsAlignment],
       }}
     >

@@ -110,14 +110,17 @@ const Product: NextPage = () => {
       ) : (
         <>
           <Carousel images={data.car.images} />
-          <Text size="xl">{`${data.car.make} ${data.car.model}`}</Text>
+          <Text size="xl" margin=".3rem .3rem 1rem">{`${data.car.make} ${data.car.model}`}</Text>
           <DetailsTable
             rows={detailsRows}
             values={data.car as Omit<CarQuery, "images">}
             mapperParams={{ consumptionUnit: data.car.consumptionUnit }}
           />
           <Toolbar itemsAlignment="center">
-            <Button link={`https://www.google.com/search?q=${data.car.make} ${data.car.model}`}>
+            <Button
+              link={`https://www.google.com/search?q=${data.car.make} ${data.car.model}`}
+              margin="0 0 1rem"
+            >
               Get it
             </Button>
           </Toolbar>
