@@ -1,4 +1,4 @@
-import type { FC } from "React";
+import type { FC } from "react";
 
 export const Popup: FC<{ shown: boolean; onClose?: () => void }> = ({
   children,

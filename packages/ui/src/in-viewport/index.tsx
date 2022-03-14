@@ -1,4 +1,4 @@
-import { Component, createRef } from "React";
+import { Component, createRef } from "react";
 
 /**
  * Internet Explorer is not supported

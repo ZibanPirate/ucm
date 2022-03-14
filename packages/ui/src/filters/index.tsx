@@ -1,4 +1,4 @@
-import type { FC } from "React";
+import type { FC } from "react";
 
 import { CheckBox } from "../checkbox";
 import { NumberInput } from "../number-input";

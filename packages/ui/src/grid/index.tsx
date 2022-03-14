@@ -1,4 +1,4 @@
-import type { FC } from "React";
+import type { FC } from "react";
 
 export const Grid: FC = ({ children }) => (
   <div

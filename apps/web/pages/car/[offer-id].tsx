@@ -1,5 +1,7 @@
 import { gql, useQuery } from "@apollo/client";
 import type { CarQuery } from "@ucm/api/dist/car/resolver";
+import { Button } from "@ucm/ui/dist/button";
+import { Carousel } from "@ucm/ui/dist/carousel";
 import { Container } from "@ucm/ui/dist/container";
 import { Text } from "@ucm/ui/dist/text";
 import { Toolbar } from "@ucm/ui/dist/toolbar";
@@ -10,6 +12,7 @@ import { Fragment } from "react";
 import { initializeApollo } from "../../providers/apollo";
 
 const carQueryFields = [
+  "offerID",
   "variant",
   "fourWheelDrive",
   "gearbox",
@@ -19,6 +22,7 @@ const carQueryFields = [
   "exteriorColor",
   "monthlyInstallment",
   "image",
+  "images",
   "model",
   "make",
   "price",
@@ -41,48 +45,65 @@ query Car($offerID: String!) {
 
 const detailsFields: Array<{
   label: string;
-  fields: Partial<Record<keyof CarQuery<typeof carQueryFields[number]>, string>>;
+  fields: Partial<
+    Record<
+      keyof CarQuery<typeof carQueryFields[number]>,
+      {
+        label: string;
+        mapper?: (
+          value: string | number | boolean,
+          params: Record<string, string | number | boolean>,
+        ) => string;
+      }
+    >
+  >;
 }> = [
   {
     label: "Model details",
     fields: {
-      make: "Make",
-      model: "Model",
-      variant: "Variant",
-      fourWheelDrive: "Is four-wheel drive",
-      gearbox: "Gearbox",
+      make: { label: "Make" },
+      model: { label: "Model" },
+      variant: { label: "Variant" },
+      fourWheelDrive: { label: "Is four-wheel drive", mapper: (value) => (value ? "Yes" : "No") },
+      gearbox: { label: "Gearbox" },
     },
   },
   {
     label: "Engine",
     fields: {
-      consumptionCombined: "Consumption",
-      fuel: "Fuel",
-      co2: "CO2 emission",
-      power: "Hours Powers",
+      consumptionCombined: {
+        label: "Consumption",
+        mapper: (value, { consumptionUnit }) => `${value} (${consumptionUnit})`,
+      },
+      fuel: { label: "Fuel" },
+      co2: { label: "CO2 emission", mapper: (value) => `${value} (g/Km)` },
+      power: { label: "Hours Powers" },
     },
   },
   {
     label: "State",
     fields: {
-      condition: "Condition",
-      firstRegistration: "First Registration",
-      mileage: "Mileage",
+      condition: { label: "Condition" },
+      firstRegistration: { label: "First Registration" },
+      mileage: { label: "Mileage", mapper: (value) => `${value} (Km)` },
     },
   },
   {
     label: "Shape",
     fields: {
-      category: "Category",
-      cubicCapacity: "Cubic capacity",
-      exteriorColor: "Exterior color",
+      category: { label: "Category" },
+      cubicCapacity: { label: "Cubic capacity" },
+      exteriorColor: { label: "Exterior color" },
     },
   },
   {
     label: "Finance",
     fields: {
-      price: "Price",
-      monthlyInstallment: "Monthly installment",
+      price: { label: "Price", mapper: (value) => `€${(value as number).toFixed(2)}` },
+      monthlyInstallment: {
+        label: "Monthly installment",
+        mapper: (value) => `€${(value as number).toFixed(2)}`,
+      },
     },
   },
 ];
@@ -102,7 +123,7 @@ const Product: NextPage = () => {
         "Error Loading, please try again later :("
       ) : (
         <>
-          <div>Carousel</div>
+          <Carousel images={data.car.images} />
           <Text size="xl">{`${data.car.make} ${data.car.model}`}</Text>
           <div>
             {detailsFields.map(({ label, fields }, index) => (
@@ -110,11 +131,15 @@ const Product: NextPage = () => {
                 <Text size="md">{label}</Text>
                 {Object.keys(fields).map((key, keyIndex) => {
                   const field = fields[key as keyof typeof fields];
+                  const value = data.car[key as keyof typeof fields] as string;
                   return (
                     <Fragment key={keyIndex}>
                       <Toolbar itemsAlignment="space-between">
-                        <Text size="sm">{field}</Text>
-                        <Text size="sm">{data.car[key as keyof typeof fields]}</Text>
+                        <Text size="sm">{field?.label}</Text>
+                        <Text size="sm">
+                          {field?.mapper?.(value, { consumptionUnit: data.car.consumptionUnit }) ||
+                            value}
+                        </Text>
                       </Toolbar>
                       <br />
                     </Fragment>
@@ -123,6 +148,11 @@ const Product: NextPage = () => {
               </div>
             ))}
           </div>
+          <Toolbar itemsAlignment="center">
+            <Button link={`https://www.google.com/search?q=${data.car.make} ${data.car.model}`}>
+              Get it
+            </Button>
+          </Toolbar>
         </>
       )}
     </Container>
