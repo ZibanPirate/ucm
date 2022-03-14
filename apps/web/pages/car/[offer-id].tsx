@@ -3,11 +3,11 @@ import type { CarQuery } from "@ucm/api/dist/car/resolver";
 import { Button } from "@ucm/ui/dist/button";
 import { Carousel } from "@ucm/ui/dist/carousel";
 import { Container } from "@ucm/ui/dist/container";
+import { DetailsTable, DetailsTableRow } from "@ucm/ui/dist/details-table";
 import { Text } from "@ucm/ui/dist/text";
 import { Toolbar } from "@ucm/ui/dist/toolbar";
 import type { GetServerSideProps, NextPage } from "next";
 import { useRouter } from "next/router";
-import { Fragment } from "react";
 
 import { initializeApollo } from "../../providers/apollo";
 
@@ -43,21 +43,7 @@ query Car($offerID: String!) {
 }
 `;
 
-const detailsFields: Array<{
-  label: string;
-  fields: Partial<
-    Record<
-      keyof CarQuery<typeof carQueryFields[number]>,
-      {
-        label: string;
-        mapper?: (
-          value: string | number | boolean,
-          params: Record<string, string | number | boolean>,
-        ) => string;
-      }
-    >
-  >;
-}> = [
+const detailsRows: DetailsTableRow<keyof Omit<CarQuery, "images">>[] = [
   {
     label: "Model details",
     fields: {
@@ -125,29 +111,11 @@ const Product: NextPage = () => {
         <>
           <Carousel images={data.car.images} />
           <Text size="xl">{`${data.car.make} ${data.car.model}`}</Text>
-          <div>
-            {detailsFields.map(({ label, fields }, index) => (
-              <div key={index}>
-                <Text size="md">{label}</Text>
-                {Object.keys(fields).map((key, keyIndex) => {
-                  const field = fields[key as keyof typeof fields];
-                  const value = data.car[key as keyof typeof fields] as string;
-                  return (
-                    <Fragment key={keyIndex}>
-                      <Toolbar itemsAlignment="space-between">
-                        <Text size="sm">{field?.label}</Text>
-                        <Text size="sm">
-                          {field?.mapper?.(value, { consumptionUnit: data.car.consumptionUnit }) ||
-                            value}
-                        </Text>
-                      </Toolbar>
-                      <br />
-                    </Fragment>
-                  );
-                })}
-              </div>
-            ))}
-          </div>
+          <DetailsTable
+            rows={detailsRows}
+            values={data.car as Omit<CarQuery, "images">}
+            mapperParams={{ consumptionUnit: data.car.consumptionUnit }}
+          />
           <Toolbar itemsAlignment="center">
             <Button link={`https://www.google.com/search?q=${data.car.make} ${data.car.model}`}>
               Get it
