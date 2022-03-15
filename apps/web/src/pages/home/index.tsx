@@ -58,8 +58,15 @@ export const HomePage: NextPage<{ graphQLFilters?: string[] }> = ({ graphQLFilte
   }>(CARS_QUERY, {
     variables: {
       filters:
-        graphQLFilters ||
-        (filters ? extractSelectedFilters(filters).graphQLQueryFilters : undefined),
+        graphQLFilters || (filters ? extractSelectedFilters(filters).graphQLQueryFilters : []),
+      take: 12,
+    },
+  });
+
+  console.log({
+    variables: {
+      filters:
+        graphQLFilters || (filters ? extractSelectedFilters(filters).graphQLQueryFilters : []),
       take: 12,
     },
   });
@@ -100,12 +107,18 @@ export const HomePage: NextPage<{ graphQLFilters?: string[] }> = ({ graphQLFilte
   return (
     <Container>
       <Toolbar margin="1rem 0">
-        <Button onClick={() => setShownPopups({ ...shownPopups, filters: true })}>Filters</Button>
+        <Button
+          onClick={() => setShownPopups({ ...shownPopups, filters: true })}
+          data-testid="filters-button"
+        >
+          Filters
+        </Button>
       </Toolbar>
       <br />
       <Popup
         shown={shownPopups.filters}
         onClose={() => setShownPopups({ ...shownPopups, filters: false })}
+        containerProps={{ "data-testid": "popup-container" }}
       >
         <Filters
           filters={filters || []}
