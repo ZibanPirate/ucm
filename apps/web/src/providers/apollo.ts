@@ -49,6 +49,6 @@ export const initializeApollo = (initialState: NormalizedCacheObject | null = nu
   return _apolloClient;
 };
 
-export const useApollo = (initialState: NormalizedCacheObject) => {
+export const useApollo = (initialState: NormalizedCacheObject | null = null) => {
   return apolloClient || initializeApollo(initialState);
 };
