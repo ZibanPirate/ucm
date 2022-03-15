@@ -1,0 +1,374 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Testing component 'CarPage' : should render with Error message on network error 1`] = `
+<div>
+  <div
+    style="max-width: 900px; margin: auto;"
+  >
+    Loading
+  </div>
+</div>
+`;
+
+exports[`Testing component 'CarPage' : should render with Error message on network error 2`] = `
+<div>
+  <div
+    style="max-width: 900px; margin: auto;"
+  >
+    Error Loading, please try again later :(
+  </div>
+</div>
+`;
+
+exports[`Testing component 'CarPage' : should render with info from test Car 100 1`] = `
+<div>
+  <div
+    style="max-width: 900px; margin: auto;"
+  >
+    Loading
+  </div>
+</div>
+`;
+
+exports[`Testing component 'CarPage' : should render with info from test Car 100 2`] = `
+<div>
+  <div
+    style="max-width: 900px; margin: auto;"
+  >
+    <div>
+      <img
+        src="/assets/image-100"
+        style="object-fit: cover; width: 100%;"
+      />
+      <div
+        style="display: flex; flex-direction: row; flex: 1; margin: initial; justify-content: space-around;"
+      >
+        <button
+          class="ucm-ui-button"
+          style="font-size: medium; margin: initial;"
+        >
+          &lt;
+        </button>
+        <button
+          class="ucm-ui-button"
+          style="font-size: medium; margin: initial;"
+        >
+          &gt;
+        </button>
+      </div>
+    </div>
+    <span
+      style="font-size: x-large; margin: .3rem .3rem 1rem; display: flex;"
+    >
+      make-100 model-100
+    </span>
+    <div>
+      <div>
+        <span
+          style="font-size: medium; margin: .3rem; display: flex;"
+        >
+          Model details
+        </span>
+        <hr />
+        <div
+          style="display: flex; flex-direction: row; flex: 1; margin: 0px .3rem; justify-content: space-between;"
+        >
+          <span
+            style="font-size: small; margin: initial; display: flex;"
+          >
+            Make
+          </span>
+          <span
+            style="font-size: small; margin: initial; display: flex;"
+          >
+            make-100
+          </span>
+        </div>
+        <br />
+        <div
+          style="display: flex; flex-direction: row; flex: 1; margin: 0px .3rem; justify-content: space-between;"
+        >
+          <span
+            style="font-size: small; margin: initial; display: flex;"
+          >
+            Model
+          </span>
+          <span
+            style="font-size: small; margin: initial; display: flex;"
+          >
+            model-100
+          </span>
+        </div>
+        <br />
+        <div
+          style="display: flex; flex-direction: row; flex: 1; margin: 0px .3rem; justify-content: space-between;"
+        >
+          <span
+            style="font-size: small; margin: initial; display: flex;"
+          >
+            Variant
+          </span>
+          <span
+            style="font-size: small; margin: initial; display: flex;"
+          >
+            variant-100
+          </span>
+        </div>
+        <br />
+        <div
+          style="display: flex; flex-direction: row; flex: 1; margin: 0px .3rem; justify-content: space-between;"
+        >
+          <span
+            style="font-size: small; margin: initial; display: flex;"
+          >
+            Is four-wheel drive
+          </span>
+          <span
+            style="font-size: small; margin: initial; display: flex;"
+          >
+            Yes
+          </span>
+        </div>
+        <br />
+        <div
+          style="display: flex; flex-direction: row; flex: 1; margin: 0px .3rem; justify-content: space-between;"
+        >
+          <span
+            style="font-size: small; margin: initial; display: flex;"
+          >
+            Gearbox
+          </span>
+          <span
+            style="font-size: small; margin: initial; display: flex;"
+          >
+            gearbox-100
+          </span>
+        </div>
+        <br />
+      </div>
+      <div>
+        <span
+          style="font-size: medium; margin: .3rem; display: flex;"
+        >
+          Engine
+        </span>
+        <hr />
+        <div
+          style="display: flex; flex-direction: row; flex: 1; margin: 0px .3rem; justify-content: space-between;"
+        >
+          <span
+            style="font-size: small; margin: initial; display: flex;"
+          >
+            Consumption
+          </span>
+          <span
+            style="font-size: small; margin: initial; display: flex;"
+          >
+            4.5 (consumptionUnit-100)
+          </span>
+        </div>
+        <br />
+        <div
+          style="display: flex; flex-direction: row; flex: 1; margin: 0px .3rem; justify-content: space-between;"
+        >
+          <span
+            style="font-size: small; margin: initial; display: flex;"
+          >
+            Fuel
+          </span>
+          <span
+            style="font-size: small; margin: initial; display: flex;"
+          >
+            fuel-100
+          </span>
+        </div>
+        <br />
+        <div
+          style="display: flex; flex-direction: row; flex: 1; margin: 0px .3rem; justify-content: space-between;"
+        >
+          <span
+            style="font-size: small; margin: initial; display: flex;"
+          >
+            CO2 emission
+          </span>
+          <span
+            style="font-size: small; margin: initial; display: flex;"
+          >
+            107 (g/Km)
+          </span>
+        </div>
+        <br />
+        <div
+          style="display: flex; flex-direction: row; flex: 1; margin: 0px .3rem; justify-content: space-between;"
+        >
+          <span
+            style="font-size: small; margin: initial; display: flex;"
+          >
+            Hours Powers
+          </span>
+          <span
+            style="font-size: small; margin: initial; display: flex;"
+          >
+            44
+          </span>
+        </div>
+        <br />
+      </div>
+      <div>
+        <span
+          style="font-size: medium; margin: .3rem; display: flex;"
+        >
+          State
+        </span>
+        <hr />
+        <div
+          style="display: flex; flex-direction: row; flex: 1; margin: 0px .3rem; justify-content: space-between;"
+        >
+          <span
+            style="font-size: small; margin: initial; display: flex;"
+          >
+            Condition
+          </span>
+          <span
+            style="font-size: small; margin: initial; display: flex;"
+          >
+            condition-100
+          </span>
+        </div>
+        <br />
+        <div
+          style="display: flex; flex-direction: row; flex: 1; margin: 0px .3rem; justify-content: space-between;"
+        >
+          <span
+            style="font-size: small; margin: initial; display: flex;"
+          >
+            First Registration
+          </span>
+          <span
+            style="font-size: small; margin: initial; display: flex;"
+          >
+            firstRegistration-100
+          </span>
+        </div>
+        <br />
+        <div
+          style="display: flex; flex-direction: row; flex: 1; margin: 0px .3rem; justify-content: space-between;"
+        >
+          <span
+            style="font-size: small; margin: initial; display: flex;"
+          >
+            Mileage
+          </span>
+          <span
+            style="font-size: small; margin: initial; display: flex;"
+          >
+            62606 (Km)
+          </span>
+        </div>
+        <br />
+      </div>
+      <div>
+        <span
+          style="font-size: medium; margin: .3rem; display: flex;"
+        >
+          Shape
+        </span>
+        <hr />
+        <div
+          style="display: flex; flex-direction: row; flex: 1; margin: 0px .3rem; justify-content: space-between;"
+        >
+          <span
+            style="font-size: small; margin: initial; display: flex;"
+          >
+            Category
+          </span>
+          <span
+            style="font-size: small; margin: initial; display: flex;"
+          >
+            category-100
+          </span>
+        </div>
+        <br />
+        <div
+          style="display: flex; flex-direction: row; flex: 1; margin: 0px .3rem; justify-content: space-between;"
+        >
+          <span
+            style="font-size: small; margin: initial; display: flex;"
+          >
+            Cubic capacity
+          </span>
+          <span
+            style="font-size: small; margin: initial; display: flex;"
+          >
+            0
+          </span>
+        </div>
+        <br />
+        <div
+          style="display: flex; flex-direction: row; flex: 1; margin: 0px .3rem; justify-content: space-between;"
+        >
+          <span
+            style="font-size: small; margin: initial; display: flex;"
+          >
+            Exterior color
+          </span>
+          <span
+            style="font-size: small; margin: initial; display: flex;"
+          >
+            exteriorColor-100
+          </span>
+        </div>
+        <br />
+      </div>
+      <div>
+        <span
+          style="font-size: medium; margin: .3rem; display: flex;"
+        >
+          Finance
+        </span>
+        <hr />
+        <div
+          style="display: flex; flex-direction: row; flex: 1; margin: 0px .3rem; justify-content: space-between;"
+        >
+          <span
+            style="font-size: small; margin: initial; display: flex;"
+          >
+            Price
+          </span>
+          <span
+            style="font-size: small; margin: initial; display: flex;"
+          >
+            €7416.00
+          </span>
+        </div>
+        <br />
+        <div
+          style="display: flex; flex-direction: row; flex: 1; margin: 0px .3rem; justify-content: space-between;"
+        >
+          <span
+            style="font-size: small; margin: initial; display: flex;"
+          >
+            Monthly installment
+          </span>
+          <span
+            style="font-size: small; margin: initial; display: flex;"
+          >
+            €60.00
+          </span>
+        </div>
+        <br />
+      </div>
+    </div>
+    <div
+      style="display: flex; flex-direction: row; flex: 1; margin: initial; justify-content: center;"
+    >
+      <button
+        class="ucm-ui-button"
+        style="font-size: medium; margin: 0px 0px 1rem;"
+      >
+        Get it
+      </button>
+    </div>
+  </div>
+</div>
+`;

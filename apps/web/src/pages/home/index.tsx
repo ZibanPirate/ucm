@@ -63,14 +63,6 @@ export const HomePage: NextPage<{ graphQLFilters?: string[] }> = ({ graphQLFilte
     },
   });
 
-  console.log({
-    variables: {
-      filters:
-        graphQLFilters || (filters ? extractSelectedFilters(filters).graphQLQueryFilters : []),
-      take: 12,
-    },
-  });
-
   useEffect(() => {
     if (!data) return;
 

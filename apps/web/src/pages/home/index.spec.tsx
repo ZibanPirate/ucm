@@ -18,7 +18,6 @@ const routerMock = {
     urlObject.searchParams.forEach((value, key) => {
       routerMock.query[key] = value;
     });
-    console.log({ query: routerMock.query });
   },
 };
 
