@@ -1,0 +1,69 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Testing component 'DetailsTable' : should render with provided linkWrapper as Fragment 1`] = `
+<div>
+  <div>
+    <div>
+      <span
+        style="font-size: medium; margin: .3rem; display: flex;"
+      >
+        Model details
+      </span>
+      <hr />
+      <div
+        style="display: flex; flex-direction: row; flex: 1; margin: 0px .3rem; justify-content: space-between;"
+      >
+        <span
+          style="font-size: small; margin: initial; display: flex;"
+        >
+          Make
+        </span>
+        <span
+          style="font-size: small; margin: initial; display: flex;"
+        >
+          BMW
+        </span>
+      </div>
+      <br />
+      <div
+        style="display: flex; flex-direction: row; flex: 1; margin: 0px .3rem; justify-content: space-between;"
+      >
+        <span
+          style="font-size: small; margin: initial; display: flex;"
+        >
+          Model
+        </span>
+        <span
+          style="font-size: small; margin: initial; display: flex;"
+        >
+          M2
+        </span>
+      </div>
+      <br />
+    </div>
+    <div>
+      <span
+        style="font-size: medium; margin: .3rem; display: flex;"
+      >
+        Finance
+      </span>
+      <hr />
+      <div
+        style="display: flex; flex-direction: row; flex: 1; margin: 0px .3rem; justify-content: space-between;"
+      >
+        <span
+          style="font-size: small; margin: initial; display: flex;"
+        >
+          Price
+        </span>
+        <span
+          style="font-size: small; margin: initial; display: flex;"
+        >
+          €39000.00
+        </span>
+      </div>
+      <br />
+    </div>
+  </div>
+</div>
+`;

@@ -48,13 +48,46 @@ If you use VSCode, please make sure to have a `.vscode/settings.json` file with 
 
 ```json
 {
-  "prettier.configPath": "./packages/tooling/.prettierrc",
+  "prettier.configPath": "packages/tooling/.prettierrc",
   "eslint.options": {
-    "overrideConfigFile": "./packages/tooling/.eslintrc.json"
-  }
+    "overrideConfigFile": "packages/tooling/.eslintrc.json"
+  },
+  "eslint.packageManager": "yarn"
 }
 ```
 
-### Before You Create a Pull Request
+## Linting and Code Quality
 
-- Please make sure your code follows the style guideline defined in this repo, for that simply run `yarn lint:fix` to ensure the conformity. This process should happen automatically whenever you commit your changes, but you can always do it manually when your Pull Request checks are failing due to linting errors.
+for linting JS/TS files, i'm using [Eslint](https://eslint.org/) configured with [Typescript](https://www.typescriptlang.org/), for the rest of the files i'm using [prettier](https://prettier.io/)
+
+to lint all files run:
+
+```sh
+yarn lint
+```
+
+to apply possible fixes, run:
+
+```sh
+yarn lint:fix
+```
+
+when committing, the code will be fixed automatically before it gets committed, thanks to [husky](https://typicode.github.io/husky) and [lint-staged](https://github.com/okonet/lint-staged).
+
+### Tests and Test Coverage:
+
+i'm using [Jest](https://jestjs.io/) for unit tests and code coverage.
+
+to run tests, run
+
+```sh
+yarn test
+```
+
+to run tests with coverage, run
+
+```sh
+yarn test --coverage
+```
+
+coverage data is stored in `./{packages,apps}/*/coverage` directories

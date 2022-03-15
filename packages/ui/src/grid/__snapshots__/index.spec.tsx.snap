@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Testing component 'Grid' : should render with 4 div elements 1`] = `
+<div>
+  <div
+    style="display: flex; flex-direction: row; flex: 1; justify-content: center; flex-wrap: wrap; gap: 1rem; margin: auto;"
+  >
+    <div>
+      1
+    </div>
+    <div>
+      2
+    </div>
+    <div>
+      3
+    </div>
+    <div>
+      4
+    </div>
+  </div>
+</div>
+`;

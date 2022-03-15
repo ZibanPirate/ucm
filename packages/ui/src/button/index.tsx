@@ -1,4 +1,3 @@
-import Link from "next/link";
 import type { FC } from "react";
 
 type ButtonSize = "xs" | "sm" | "md" | "lg" | "xl";
@@ -15,15 +14,14 @@ export const Button: FC<{
   size?: ButtonSize;
   stretch?: boolean;
   onClick?: () => void;
-  link?: string;
   margin?: string;
 }> = ({
   children,
   size = "md",
   stretch = false,
   onClick = () => null,
-  link,
   margin = "initial",
+  ...props
 }) => {
   const button = (
     <button
@@ -34,16 +32,10 @@ export const Button: FC<{
         margin,
       }}
       onClick={onClick}
+      {...props}
     >
       {children}
     </button>
   );
-  if (link) {
-    return (
-      <Link href={link} shallow={true} scroll={false}>
-        {button}
-      </Link>
-    );
-  }
   return button;
 };

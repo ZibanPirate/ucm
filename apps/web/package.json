@@ -10,7 +10,6 @@
     "@apollo/client": "^3.5.10",
     "@ucm/api": "*",
     "@ucm/ui": "*",
-    "@ucm/utils": "*",
     "apollo-server-micro": "^3.6.4",
     "graphql": "^15.3.0",
     "micro": "^9.3.4",

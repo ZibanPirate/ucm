@@ -1,0 +1,151 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Testing component 'Carousel' : should render it with 2 images and no optional props 1`] = `
+<div>
+  <div>
+    <img
+      src="/assets/test-01.svg"
+      style="object-fit: cover; width: 100%;"
+    />
+    <div
+      style="display: flex; flex-direction: row; flex: 1; margin: initial; justify-content: space-around;"
+    >
+      <button
+        class="ucm-ui-button"
+        style="font-size: medium; margin: initial;"
+      >
+        &lt;
+      </button>
+      <button
+        class="ucm-ui-button"
+        style="font-size: medium; margin: initial;"
+      >
+        &gt;
+      </button>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Testing component 'Carousel' : should render it with 2 images, and switch between them: First image 1`] = `
+<div>
+  <div
+    data-testid="carousel"
+  >
+    <img
+      src="/assets/test-01.svg"
+      style="object-fit: cover; width: 100%;"
+    />
+    <div
+      style="display: flex; flex-direction: row; flex: 1; margin: initial; justify-content: space-around;"
+    >
+      <button
+        class="ucm-ui-button"
+        data-testid="carousel-previous"
+        style="font-size: medium; margin: initial;"
+      >
+        &lt;
+      </button>
+      <button
+        class="ucm-ui-button"
+        data-testid="carousel-next"
+        style="font-size: medium; margin: initial;"
+      >
+        &gt;
+      </button>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Testing component 'Carousel' : should render it with 2 images, and switch between them: First image again 1`] = `
+<div>
+  <div
+    data-testid="carousel"
+  >
+    <img
+      src="/assets/test-01.svg"
+      style="object-fit: cover; width: 100%;"
+    />
+    <div
+      style="display: flex; flex-direction: row; flex: 1; margin: initial; justify-content: space-around;"
+    >
+      <button
+        class="ucm-ui-button"
+        data-testid="carousel-previous"
+        style="font-size: medium; margin: initial;"
+      >
+        &lt;
+      </button>
+      <button
+        class="ucm-ui-button"
+        data-testid="carousel-next"
+        style="font-size: medium; margin: initial;"
+      >
+        &gt;
+      </button>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Testing component 'Carousel' : should render it with 2 images, and switch between them: Second image 1`] = `
+<div>
+  <div
+    data-testid="carousel"
+  >
+    <img
+      src="/assets/test-02.svg"
+      style="object-fit: cover; width: 100%;"
+    />
+    <div
+      style="display: flex; flex-direction: row; flex: 1; margin: initial; justify-content: space-around;"
+    >
+      <button
+        class="ucm-ui-button"
+        data-testid="carousel-previous"
+        style="font-size: medium; margin: initial;"
+      >
+        &lt;
+      </button>
+      <button
+        class="ucm-ui-button"
+        data-testid="carousel-next"
+        style="font-size: medium; margin: initial;"
+      >
+        &gt;
+      </button>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Testing component 'Carousel' : should render it with 2 images, and switch between them: Second image again 1`] = `
+<div>
+  <div
+    data-testid="carousel"
+  >
+    <img
+      style="object-fit: cover; width: 100%;"
+    />
+    <div
+      style="display: flex; flex-direction: row; flex: 1; margin: initial; justify-content: space-around;"
+    >
+      <button
+        class="ucm-ui-button"
+        data-testid="carousel-previous"
+        style="font-size: medium; margin: initial;"
+      >
+        &lt;
+      </button>
+      <button
+        class="ucm-ui-button"
+        data-testid="carousel-next"
+        style="font-size: medium; margin: initial;"
+      >
+        &gt;
+      </button>
+    </div>
+  </div>
+</div>
+`;

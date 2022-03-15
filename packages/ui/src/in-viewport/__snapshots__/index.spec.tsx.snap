@@ -1,0 +1,7 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Testing component 'InViewport' : should render and notify when it enters the viewport then notify when it leaves it 1`] = `
+<div>
+  <div />
+</div>
+`;

@@ -1,0 +1,53 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Testing component 'CheckBox' : should render it unchecked then check it: Checked 1`] = `
+<div>
+  <div>
+    <input
+      data-testid="bmw-checkbox"
+      id="BMW"
+      name="BMW"
+      type="checkbox"
+    />
+    <label
+      for="BMW"
+    >
+      BMW
+    </label>
+  </div>
+</div>
+`;
+
+exports[`Testing component 'CheckBox' : should render it unchecked then check it: Not checked 1`] = `
+<div>
+  <div>
+    <input
+      data-testid="bmw-checkbox"
+      id="BMW"
+      name="BMW"
+      type="checkbox"
+    />
+    <label
+      for="BMW"
+    >
+      BMW
+    </label>
+  </div>
+</div>
+`;
+
+exports[`Testing component 'CheckBox' : should render it with no label and no initial checked state 1`] = `
+<div>
+  <div>
+    <input
+      data-testid="checkbox"
+      id=""
+      name=""
+      type="checkbox"
+    />
+    <label
+      for=""
+    />
+  </div>
+</div>
+`;

@@ -1,0 +1,43 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Testing component 'Toolbar' : should render with 4 div elements 1`] = `
+<div>
+  <div
+    style="display: flex; flex-direction: row; flex: 1; margin: initial; justify-content: start;"
+  >
+    <div>
+      1
+    </div>
+    <div>
+      2
+    </div>
+    <div>
+      3
+    </div>
+    <div>
+      4
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Testing component 'Toolbar' : should render with 4 div elements and provided 'itemsAlignment' and 'margin' 1`] = `
+<div>
+  <div
+    style="display: flex; flex-direction: row; flex: 1; margin: 1rem; justify-content: center;"
+  >
+    <div>
+      1
+    </div>
+    <div>
+      2
+    </div>
+    <div>
+      3
+    </div>
+    <div>
+      4
+    </div>
+  </div>
+</div>
+`;

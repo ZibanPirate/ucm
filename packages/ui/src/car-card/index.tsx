@@ -1,17 +1,17 @@
-import type { FC } from "react";
+import type { FC, FunctionComponent } from "react";
 
 import { Button } from "../button";
 import { Image, imageSizeToStyle } from "../image";
 import { Text } from "../text";
 
 export const CarCard: FC<{
-  offerID: string;
   image: string;
   make: string;
   model: string;
   price: number;
   description: string;
-}> = ({ image, make, model, price, description, offerID }) => (
+  LinkWrapper: FunctionComponent;
+}> = ({ image, make, model, price, description, LinkWrapper }) => (
   <div
     style={{
       width: imageSizeToStyle["md"],
@@ -28,8 +28,8 @@ export const CarCard: FC<{
     <Text size="sm" margin={"0.3rem .6rem .6rem"} stretch>
       {description}
     </Text>
-    <Button size="sm" link={`/car/${offerID}`}>
-      See more
-    </Button>
+    <LinkWrapper>
+      <Button size="sm">See more</Button>
+    </LinkWrapper>
   </div>
 );

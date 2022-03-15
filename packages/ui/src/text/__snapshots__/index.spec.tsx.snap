@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Testing component 'Text' : should render a stretched 'Text' component with text 'Used Cars Market' 1`] = `
+<div>
+  <span
+    style="font-size: medium; margin: initial; display: flex; flex: 1;"
+  >
+    Used Cars Market
+  </span>
+</div>
+`;
+
+exports[`Testing component 'Text' : should render with text 'Hi' 1`] = `
+<div>
+  <span
+    style="font-size: medium; margin: initial; display: flex;"
+  >
+    OK
+  </span>
+</div>
+`;

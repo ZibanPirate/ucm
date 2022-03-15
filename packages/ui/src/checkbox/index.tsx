@@ -1,10 +1,10 @@
 import type { FC } from "react";
 
 export const CheckBox: FC<{
-  label: string;
+  label?: string;
   checked?: boolean;
   onChange?: (checked: boolean) => void;
-}> = ({ label, checked = false, onChange = () => null }) => {
+}> = ({ label = "", checked = false, onChange = () => null, ...props }) => {
   return (
     <div>
       <input
@@ -13,6 +13,7 @@ export const CheckBox: FC<{
         type="checkbox"
         checked={checked}
         onChange={(e) => onChange(e.target.checked)}
+        {...props}
       />
       <label htmlFor={label}>{label}</label>
     </div>

@@ -1,0 +1,56 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Testing component 'Popup' : should render it shown, then hid it: Hidden 1`] = `
+<div>
+  <div
+    data-testid="popup-container"
+    style="display: none; position: fixed; top: 0px; left: 0px; width: 100vw; height: 100vh; background-color: rgba(255, 255, 255, 0.933); overflow: auto; text-align: center;"
+  >
+    <div
+      data-testid="popup"
+      style="text-align: start; display: inline-block; background-color: lightgray; margin: 3rem;"
+    />
+  </div>
+</div>
+`;
+
+exports[`Testing component 'Popup' : should render it shown, then hid it: Shown 1`] = `
+<div>
+  <div
+    data-testid="popup-container"
+    style="display: initial; position: fixed; top: 0px; left: 0px; width: 100vw; height: 100vh; background-color: rgba(255, 255, 255, 0.933); overflow: auto; text-align: center;"
+  >
+    <div
+      data-testid="popup"
+      style="text-align: start; display: inline-block; background-color: lightgray; margin: 3rem;"
+    />
+  </div>
+</div>
+`;
+
+exports[`Testing component 'Popup' : should render it shown, then hid it: Stays shown 1`] = `
+<div>
+  <div
+    data-testid="popup-container"
+    style="display: initial; position: fixed; top: 0px; left: 0px; width: 100vw; height: 100vh; background-color: rgba(255, 255, 255, 0.933); overflow: auto; text-align: center;"
+  >
+    <div
+      data-testid="popup"
+      style="text-align: start; display: inline-block; background-color: lightgray; margin: 3rem;"
+    />
+  </div>
+</div>
+`;
+
+exports[`Testing component 'Popup' : should render it with no optional props 1`] = `
+<div>
+  <div
+    style="display: initial; position: fixed; top: 0px; left: 0px; width: 100vw; height: 100vh; background-color: rgba(255, 255, 255, 0.933); overflow: auto; text-align: center;"
+  >
+    <div
+      data-testid="popup"
+      style="text-align: start; display: inline-block; background-color: lightgray; margin: 3rem;"
+    />
+  </div>
+</div>
+`;

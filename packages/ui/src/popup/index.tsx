@@ -1,10 +1,10 @@
 import type { FC } from "react";
 
-export const Popup: FC<{ shown: boolean; onClose?: () => void }> = ({
-  children,
-  shown = false,
-  onClose = () => null,
-}) => {
+export const Popup: FC<{
+  shown: boolean;
+  onClose: () => void;
+  containerProps?: Record<string, unknown>;
+}> = ({ children, shown, onClose, containerProps = {}, ...props }) => {
   return (
     <div
       style={{
@@ -19,6 +19,7 @@ export const Popup: FC<{ shown: boolean; onClose?: () => void }> = ({
         textAlign: "center",
       }}
       onClick={onClose}
+      {...containerProps}
     >
       <div
         style={{
@@ -28,6 +29,7 @@ export const Popup: FC<{ shown: boolean; onClose?: () => void }> = ({
           margin: "3rem",
         }}
         onClick={(e) => e.stopPropagation()}
+        {...props}
       >
         {children}
       </div>

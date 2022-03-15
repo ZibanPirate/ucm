@@ -1,0 +1,25 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Testing component 'Button' : should render a stretched 'Button' component with text 'See More' and do nothing when clicked 1`] = `
+<div>
+  <button
+    class="ucm-ui-button"
+    data-testid="see-more-button"
+    style="font-size: medium; flex: 1; margin: initial;"
+  >
+    See More
+  </button>
+</div>
+`;
+
+exports[`Testing component 'Button' : should render with text 'OK' and fire an 'onClick' event when clicked 1`] = `
+<div>
+  <button
+    class="ucm-ui-button"
+    data-testid="ok-button"
+    style="font-size: medium; margin: initial;"
+  >
+    OK
+  </button>
+</div>
+`;

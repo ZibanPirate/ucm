@@ -1,0 +1,56 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Testing component 'NumberInput' : should render with initial value and no label and no onChange 1`] = `
+<div>
+  <div>
+    <input
+      data-testid="number-input"
+      id=""
+      name=""
+      type="number"
+      value="100"
+    />
+    <label
+      for=""
+    />
+  </div>
+</div>
+`;
+
+exports[`Testing component 'NumberInput' : should render with initial value then change it on input change: 20000 1`] = `
+<div>
+  <div>
+    <input
+      data-testid="number-input"
+      id="Mileage"
+      name="Mileage"
+      type="number"
+      value="20000"
+    />
+    <label
+      for="Mileage"
+    >
+      Mileage
+    </label>
+  </div>
+</div>
+`;
+
+exports[`Testing component 'NumberInput' : should render with initial value then change it on input change: 80000 1`] = `
+<div>
+  <div>
+    <input
+      data-testid="number-input"
+      id="Mileage"
+      name="Mileage"
+      type="number"
+      value="80000"
+    />
+    <label
+      for="Mileage"
+    >
+      Mileage
+    </label>
+  </div>
+</div>
+`;

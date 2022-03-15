@@ -1,0 +1,91 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Testing component 'Filters' : should render with options of all types, then change their values 1`] = `
+<div>
+  <div
+    style="padding: 0px 1rem 1rem;"
+  >
+    <div
+      style="padding-top: 1rem;"
+    >
+      <div
+        style="text-align: center;"
+      >
+        <span
+          style="font-size: large; margin: 0px 0px .5rem; display: flex;"
+        >
+          Make
+        </span>
+      </div>
+      <div>
+        <div>
+          <input
+            checked=""
+            id="BMW"
+            name="BMW"
+            type="checkbox"
+          />
+          <label
+            for="BMW"
+          >
+            BMW
+          </label>
+        </div>
+        <div>
+          <input
+            id="Porsche"
+            name="Porsche"
+            type="checkbox"
+          />
+          <label
+            for="Porsche"
+          >
+            Porsche
+          </label>
+        </div>
+      </div>
+    </div>
+    <div
+      style="padding-top: 1rem;"
+    >
+      <div
+        style="text-align: center;"
+      >
+        <span
+          style="font-size: large; margin: 0px 0px .5rem; display: flex;"
+        >
+          Price
+        </span>
+      </div>
+      <div>
+        <div>
+          <input
+            id="Min"
+            name="Min"
+            type="number"
+            value="20000"
+          />
+          <label
+            for="Min"
+          >
+            Min
+          </label>
+        </div>
+        <div>
+          <input
+            id="Max"
+            name="Max"
+            type="number"
+            value="100000"
+          />
+          <label
+            for="Max"
+          >
+            Max
+          </label>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;

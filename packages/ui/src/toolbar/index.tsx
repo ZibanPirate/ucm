@@ -21,18 +21,16 @@ export const Toolbar: FC<{ itemsAlignment?: ToolbarItemsAlignment; margin?: stri
   children,
   itemsAlignment = "start",
   margin = "initial",
-}) => {
-  return (
-    <div
-      style={{
-        display: "flex",
-        flexDirection: "row",
-        flex: "1",
-        margin,
-        justifyContent: toolbarItemsAlignmentTo[itemsAlignment],
-      }}
-    >
-      {children}
-    </div>
-  );
-};
+}) => (
+  <div
+    style={{
+      display: "flex",
+      flexDirection: "row",
+      flex: "1",
+      margin,
+      justifyContent: toolbarItemsAlignmentTo[itemsAlignment],
+    }}
+  >
+    {children}
+  </div>
+);

@@ -9,6 +9,7 @@ import { InViewport } from "@ucm/ui/dist/in-viewport";
 import { Popup } from "@ucm/ui/dist/popup";
 import { Toolbar } from "@ucm/ui/dist/toolbar";
 import type { GetServerSideProps, NextPage } from "next";
+import Link from "next/link";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 
@@ -149,13 +150,13 @@ const Home: NextPage<{ graphQLFilters?: string[] }> = ({ graphQLFilters }) => {
           ? "Error Loading, please try again later :("
           : data.cars.result.map((car, index) => (
               <CarCard
-                offerID={car.offerID}
                 key={index}
                 image={car.image}
                 make={car.make}
                 model={car.model}
                 price={car.price}
                 description={`${car.power} HP ${car.fuel} engine, ran for ${car.mileage} Km since ${car.firstRegistration}, with a combined consumption of ${car.consumptionCombined} (${car.consumptionUnit}) and CO2 emission of ${car.co2} (g/Km)`}
+                LinkWrapper={(props) => <Link href={`/car/${car.offerID}`} shallow {...props} />}
               />
             ))}
       </Grid>

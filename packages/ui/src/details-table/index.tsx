@@ -6,17 +6,14 @@ import { Toolbar } from "../toolbar";
 
 type RowValue = string | number | boolean | null;
 
+interface DetailsTableRowField {
+  label: string;
+  mapper?: (value: RowValue, params: Record<string, RowValue>) => string;
+}
+
 export interface DetailsTableRow<T extends string = string> {
   label: string;
-  fields: Partial<
-    Record<
-      T,
-      {
-        label: string;
-        mapper?: (value: RowValue, params: Record<string, RowValue>) => string;
-      }
-    >
-  >;
+  fields: Partial<Record<T, DetailsTableRowField>>;
 }
 
 export const DetailsTable: FC<{
@@ -32,13 +29,13 @@ export const DetailsTable: FC<{
         </Text>
         <hr />
         {Object.keys(fields).map((key, keyIndex) => {
-          const field = fields[key];
+          const field = fields[key] as DetailsTableRowField;
           const value = values[key];
           return (
             <Fragment key={keyIndex}>
               <Toolbar itemsAlignment="space-between" margin="0 .3rem">
-                <Text size="sm">{field?.label}</Text>
-                <Text size="sm">{field?.mapper?.(value, mapperParams) || value}</Text>
+                <Text size="sm">{field.label}</Text>
+                <Text size="sm">{field.mapper?.(value, mapperParams) || value}</Text>
               </Toolbar>
               <br />
             </Fragment>

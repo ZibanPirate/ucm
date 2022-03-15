@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Testing component 'Image' : should render an auto-sized 'Image' component image url '/assets/test.svg' 1`] = `
+<div>
+  <img
+    src="/assets/test.svg"
+    style="object-fit: cover; width: 100%;"
+  />
+</div>
+`;
+
+exports[`Testing component 'Image' : should render with image url '/assets/test.svg' 1`] = `
+<div>
+  <img
+    src="/assets/test.svg"
+    style="width: 200px; height: 200px; object-fit: cover;"
+  />
+</div>
+`;

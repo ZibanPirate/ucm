@@ -4,7 +4,7 @@ export const NumberInput: FC<{
   label?: string;
   value: number;
   onChange?: (value: number) => void;
-}> = ({ label = "", value, onChange = () => null }) => {
+}> = ({ label = "", value, onChange = () => null, ...props }) => {
   return (
     <div>
       <input
@@ -13,6 +13,7 @@ export const NumberInput: FC<{
         type="number"
         onChange={(e) => onChange(Number(e.target.value))}
         value={value}
+        {...props}
       />
       <label htmlFor={label}>{label}</label>
     </div>

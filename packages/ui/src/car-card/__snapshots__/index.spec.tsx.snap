@@ -1,0 +1,29 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Testing component 'CarCard' : should render with provided linkWrapper as Fragment 1`] = `
+<div>
+  <div
+    style="width: 200px; background-color: whitesmoke; display: flex; flex-direction: column;"
+  >
+    <img
+      src="/assets/test.svg"
+      style="width: 200px; height: 200px; object-fit: cover;"
+    />
+    <span
+      style="font-size: large; margin: 0.3rem .6rem; display: flex;"
+    >
+      BMW M2
+    </span>
+    <span
+      style="font-size: medium; margin: 0.3rem .6rem; display: flex;"
+    >
+      €39000.00
+    </span>
+    <span
+      style="font-size: small; margin: 0.3rem .6rem .6rem; display: flex; flex: 1;"
+    >
+      test description
+    </span>
+  </div>
+</div>
+`;

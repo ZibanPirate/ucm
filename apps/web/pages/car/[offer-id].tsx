@@ -7,6 +7,7 @@ import { DetailsTable, DetailsTableRow } from "@ucm/ui/dist/details-table";
 import { Text } from "@ucm/ui/dist/text";
 import { Toolbar } from "@ucm/ui/dist/toolbar";
 import type { GetServerSideProps, NextPage } from "next";
+import Link from "next/link";
 import { useRouter } from "next/router";
 
 import { initializeApollo } from "../../providers/apollo";
@@ -117,12 +118,12 @@ const Product: NextPage = () => {
             mapperParams={{ consumptionUnit: data.car.consumptionUnit }}
           />
           <Toolbar itemsAlignment="center">
-            <Button
-              link={`https://www.google.com/search?q=${data.car.make} ${data.car.model}`}
-              margin="0 0 1rem"
+            <Link
+              href={`https://www.google.com/search?q=${data.car.make} ${data.car.model}`}
+              shallow
             >
-              Get it
-            </Button>
+              <Button margin="0 0 1rem">Get it</Button>
+            </Link>
           </Toolbar>
         </>
       )}
