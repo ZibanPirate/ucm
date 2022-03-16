@@ -33,19 +33,20 @@ export class CarsQuery<CarFields extends keyof Car = keyof Car> {
 
 export type CarQuery<CarFields extends keyof Car = keyof Car> = Pick<Car, CarFields>;
 
-type CarFilterName = keyof Pick<
-  Car,
-  | "make"
-  | "model"
-  | "firstRegistration"
-  | "fuel"
-  | "gearbox"
-  | "exteriorColor"
-  | "category"
-  | "mileage"
-  | "power"
-  | "price"
->;
+const allowedCarFilters = {
+  make: true,
+  model: true,
+  firstRegistration: true,
+  fuel: true,
+  gearbox: true,
+  exteriorColor: true,
+  category: true,
+  mileage: true,
+  power: true,
+  price: true,
+} as const;
+
+type CarFilterName = keyof typeof allowedCarFilters;
 
 @Resolver()
 export class CarResolver {
@@ -73,7 +74,10 @@ export class CarResolver {
     const result = cars
       .filter((car) => {
         const filtersRecord = filters.reduce<Partial<Record<CarFilterName, string[]>>>((pV, cV) => {
-          const [filterName, CSVs] = cV.split(":");
+          const [filterName, CSVs] = cV.split(":") as [CarFilterName, string];
+          if (!allowedCarFilters[filterName]) {
+            return pV;
+          }
           return { ...pV, [filterName]: CSVs.split(",") };
         }, {});
 
