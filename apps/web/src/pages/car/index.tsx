@@ -103,11 +103,11 @@ export const CarPage: NextPage = () => {
   return (
     <Container>
       <Toolbar margin="1rem 0">
-        <Link href={"/"}>
+        <Link href={"/"} shallow={true}>
           <Button data-testid="home-button">{"< All Cars"}</Button>
         </Link>
         {data?.car ? (
-          <Link href={`/?make=${data.car.make}`}>
+          <Link href={`/?make=${data.car.make}`} shallow={true}>
             <Button data-testid="make-button">{`< ${data.car.make}`}</Button>
           </Link>
         ) : null}
@@ -128,7 +128,7 @@ export const CarPage: NextPage = () => {
           <Toolbar itemsAlignment="center">
             <Link
               href={`https://www.google.com/search?q=${data.car.make} ${data.car.model}`}
-              shallow
+              shallow={true}
             >
               <Button margin="0 0 1rem">Get it</Button>
             </Link>

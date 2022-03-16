@@ -12,10 +12,11 @@ import { Toolbar } from "@ucm/ui/dist/toolbar";
 import type { NextPage } from "next";
 import Link from "next/link";
 import { useRouter } from "next/router";
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 
 import { extractSelectedFilters } from "../../utils/filters";
 import { recordToURLQuery, urlQueryToRecord } from "../../utils/url-query";
+import { carsQueryResultFiltersToHomePageFilters, urlQueryToGraphQLQueryFilters } from "./utils";
 
 const carsQueryFields = [
   "image",
@@ -59,44 +60,25 @@ export const HomePage: NextPage<{ graphQLFilters?: string[] }> = ({ graphQLFilte
   }>(CARS_QUERY, {
     variables: {
       filters:
-        graphQLFilters || (filters ? extractSelectedFilters(filters).graphQLQueryFilters : []),
+        graphQLFilters ||
+        useMemo(() => urlQueryToGraphQLQueryFilters(router.query), [router.query]),
       take: 12,
     },
   });
 
+  // Update the Displayed filters schema, while preserving the already selected options:
   useEffect(() => {
     if (!data) return;
-
     const filtersOnURLQuery = urlQueryToRecord(router.query);
-
-    setFilters(
-      data.cars.filters.map(({ label, name, type, values }) => {
-        switch (type) {
-          case "range":
-            return {
-              label,
-              name,
-              type,
-              options: {
-                min: Number(filtersOnURLQuery[name]?.[0] || 0),
-                max: Number(filtersOnURLQuery[name]?.[1] || 0),
-              },
-            };
-          case "options":
-            return {
-              label,
-              name,
-              type,
-              options: values.map((value) => ({
-                name: value,
-                checked: filtersOnURLQuery[name]?.includes(value),
-              })),
-            };
-        }
-      }),
-    );
+    setFilters(carsQueryResultFiltersToHomePageFilters(data.cars.filters, filtersOnURLQuery));
   }, [data?.cars.filters]);
 
+  // When the user navigates to HomePage, refresh Query if the variable are different
+  useEffect(() => {
+    // refetch();
+  }, []);
+
+  // DRYed the FiltersComponent for responsive rendering bellow:
   const FiltersComponent = () => (
     <Filters
       margin="1rem"
@@ -135,6 +117,7 @@ export const HomePage: NextPage<{ graphQLFilters?: string[] }> = ({ graphQLFilte
 
   return (
     <Container>
+      {/* Top Toolbar only shown/rendered on mobile */}
       <MediaQuery query="(max-width: 800px)">
         <Toolbar margin="1rem 0">
           <Button
@@ -153,6 +136,7 @@ export const HomePage: NextPage<{ graphQLFilters?: string[] }> = ({ graphQLFilte
         </Popup>
       </MediaQuery>
       <Grid>
+        {/* Sidebar filters only shown/rendered on desktop */}
         <MediaQuery query="(min-width: 800px)">
           <FiltersComponent />
         </MediaQuery>
@@ -169,9 +153,12 @@ export const HomePage: NextPage<{ graphQLFilters?: string[] }> = ({ graphQLFilte
                   model={car.model}
                   price={car.price}
                   description={`${car.power} HP ${car.fuel} engine, ran for ${car.mileage} Km since ${car.firstRegistration}, with a combined consumption of ${car.consumptionCombined} (${car.consumptionUnit}) and CO2 emission of ${car.co2} (g/Km)`}
-                  LinkWrapper={(props) => <Link href={`/car/${car.offerID}`} shallow {...props} />}
+                  LinkWrapper={(props) => (
+                    <Link href={`/car/${car.offerID}`} shallow={true} {...props} />
+                  )}
                 />
               ))}
+          {/* Visibility detection component, used to detect when user hits the bottom of the results */}
           <InViewport
             onVisibilityChanged={async (action) => {
               if (action === "entered" && !infiniteScroll.eod) {

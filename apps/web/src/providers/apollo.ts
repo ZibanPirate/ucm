@@ -22,7 +22,7 @@ const createApolloClient = () =>
         Query: {
           fields: {
             cars: {
-              keyArgs: false,
+              keyArgs: ["filters"],
               merge: (existing, incoming) => ({
                 ...incoming,
                 result: [...(existing?.result || []), ...incoming.result],
