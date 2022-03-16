@@ -7,3 +7,4 @@ node_modules
 yarn-error.log
 .husky
 lerna-debug.log
+.vercel
