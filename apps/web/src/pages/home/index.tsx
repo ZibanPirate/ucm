@@ -10,11 +10,13 @@ import { MediaQuery } from "@ucm/ui/dist/media-query";
 import { Popup } from "@ucm/ui/dist/popup";
 import { Toolbar } from "@ucm/ui/dist/toolbar";
 import type { NextPage } from "next";
+import Head from "next/head";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { useEffect, useMemo, useState } from "react";
 
 import { extractSelectedFilters } from "../../utils/filters";
+import { isSSR } from "../../utils/ssr";
 import { recordToURLQuery, urlQueryToRecord } from "../../utils/url-query";
 import { carsQueryResultFiltersToHomePageFilters, urlQueryToGraphQLQueryFilters } from "./utils";
 
@@ -61,7 +63,7 @@ export const HomePage: NextPage<{ graphQLFilters?: string[] }> = ({ graphQLFilte
     variables: {
       filters:
         graphQLFilters ||
-        useMemo(() => urlQueryToGraphQLQueryFilters(router.query), [router.query]),
+        (isSSR() ? [] : useMemo(() => urlQueryToGraphQLQueryFilters(router.query), [router.query])),
       take: 12,
     },
   });
@@ -115,8 +117,16 @@ export const HomePage: NextPage<{ graphQLFilters?: string[] }> = ({ graphQLFilte
     />
   );
 
+  const title = "Used Car Market";
+
   return (
     <Container>
+      <Head>
+        <title>{title}</title>
+        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+        <meta property="og:title" content={title} />
+        <meta property="og:image" content="/home-og.jpg" />
+      </Head>
       {/* Top Toolbar only shown/rendered on mobile */}
       <MediaQuery query="(max-width: 800px)">
         <Toolbar margin="1rem 0">

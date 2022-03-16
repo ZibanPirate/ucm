@@ -27,8 +27,7 @@ jest.mock("next/router", () => ({ useRouter: () => routerMock }));
 describe(`Testing component '${HomePage.name}' :`, () => {
   it(`should render '${HomePage.name}', then change both filters, then preform an infinite scroll`, async () => {
     window.IntersectionObserver = MockedIntersectionObserver;
-    let callbackMock: (e: MediaQueryListEvent) => void = () => null;
-    window.matchMedia = mockedMatchMedia((callback) => (callbackMock = callback));
+    window.matchMedia = mockedMatchMedia(() => null);
 
     const { container } = render(
       <MockedProvider mocks={CARS_QUERY_MOCK} addTypename={false}>

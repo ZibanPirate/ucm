@@ -7,6 +7,7 @@ import { DetailsTable, DetailsTableRow } from "@ucm/ui/dist/details-table";
 import { Text } from "@ucm/ui/dist/text";
 import { Toolbar } from "@ucm/ui/dist/toolbar";
 import type { NextPage } from "next";
+import Head from "next/head";
 import Link from "next/link";
 import { useRouter } from "next/router";
 
@@ -100,8 +101,18 @@ export const CarPage: NextPage = () => {
     variables: { offerID: router.query["offer-id"] },
   });
 
+  const title = data
+    ? `${data.car.make} ${data.car.model} €${data.car.price.toFixed(0)}`
+    : "Not Found!";
   return (
     <Container>
+      <Head>
+        <title>{title}</title>
+        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+        <meta property="og:title" content={title} />
+        <meta property="og:image" content={data?.car.image} />
+      </Head>
+
       <Toolbar margin="1rem 0">
         <Link href={"/"} shallow={true}>
           <Button data-testid="home-button">{"< All Cars"}</Button>
