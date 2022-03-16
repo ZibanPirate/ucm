@@ -30,9 +30,17 @@ export type Filter = OptionsFilter | RangeFilter;
 export const Filters: FC<{
   filters: Filter[];
   onChange?: (filterName: string, optionName: string, value: number | boolean) => void;
-}> = ({ onChange = () => null, filters }) => {
+  margin?: string;
+}> = ({ onChange = () => null, filters, margin = "initial" }) => {
   return (
-    <div style={{ padding: "0 1rem 1rem" }}>
+    <div
+      style={{
+        padding: "0 1rem 1rem",
+        backgroundColor: "lightgray",
+        height: "fit-content",
+        margin,
+      }}
+    >
       {filters.map((filter, index) => (
         <div key={index} style={{ paddingTop: "1rem" }}>
           <div style={{ textAlign: "center" }}>
@@ -56,11 +64,13 @@ export const Filters: FC<{
                   value={filter.options.min}
                   label={"Min"}
                   onChange={(value) => onChange(filter.name, "min", value)}
+                  margin="0.3rem"
                 />
                 <NumberInput
                   value={filter.options.max}
                   label={"Max"}
                   onChange={(value) => onChange(filter.name, "max", value)}
+                  margin="0.3rem"
                 />
               </>
             )}

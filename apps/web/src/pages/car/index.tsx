@@ -102,6 +102,16 @@ export const CarPage: NextPage = () => {
 
   return (
     <Container>
+      <Toolbar margin="1rem 0">
+        <Link href={"/"}>
+          <Button data-testid="home-button">{"< All Cars"}</Button>
+        </Link>
+        {data?.car ? (
+          <Link href={`/?make=${data.car.make}`}>
+            <Button data-testid="make-button">{`< ${data.car.make}`}</Button>
+          </Link>
+        ) : null}
+      </Toolbar>
       {loading ? (
         "Loading"
       ) : !data ? (

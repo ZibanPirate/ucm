@@ -3,11 +3,12 @@
 exports[`Testing component 'CarCard' : should render with provided linkWrapper as Fragment 1`] = `
 <div>
   <div
-    style="width: 200px; background-color: whitesmoke; display: flex; flex-direction: column;"
+    class="ucm-ui-car-card"
+    style="background-color: whitesmoke; display: flex; flex-direction: column;"
   >
     <img
       src="/assets/test.svg"
-      style="width: 200px; height: 200px; object-fit: cover;"
+      style="object-fit: cover; width: 100%;"
     />
     <span
       style="font-size: large; margin: 0.3rem .6rem; display: flex;"

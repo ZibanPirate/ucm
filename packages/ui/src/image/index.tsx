@@ -2,7 +2,7 @@ import type { FC } from "react";
 
 type ImageSize = "xs" | "sm" | "md" | "lg" | "xl" | "auto";
 
-export const imageSizeToStyle: Record<ImageSize, number> = {
+const imageSizeToStyle: Record<ImageSize, number> = {
   xs: 50,
   sm: 100,
   md: 200,

@@ -3,7 +3,7 @@
 exports[`Testing component 'Container' : should render with 4 div elements 1`] = `
 <div>
   <div
-    style="max-width: 900px; margin: auto;"
+    style="max-width: 1200px; margin: auto;"
   >
     <div>
       1

@@ -7,11 +7,13 @@ exports[`Testing component 'NumberInput' : should render with initial value and 
       data-testid="number-input"
       id=""
       name=""
+      style="margin: initial;"
       type="number"
       value="100"
     />
     <label
       for=""
+      style="margin: 0.3rem;"
     />
   </div>
 </div>
@@ -24,11 +26,13 @@ exports[`Testing component 'NumberInput' : should render with initial value then
       data-testid="number-input"
       id="Mileage"
       name="Mileage"
+      style="margin: initial;"
       type="number"
       value="20000"
     />
     <label
       for="Mileage"
+      style="margin: 0.3rem;"
     >
       Mileage
     </label>
@@ -43,11 +47,13 @@ exports[`Testing component 'NumberInput' : should render with initial value then
       data-testid="number-input"
       id="Mileage"
       name="Mileage"
+      style="margin: initial;"
       type="number"
       value="80000"
     />
     <label
       for="Mileage"
+      style="margin: 0.3rem;"
     >
       Mileage
     </label>

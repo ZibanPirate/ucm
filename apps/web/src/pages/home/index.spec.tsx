@@ -1,8 +1,8 @@
 import { MockedProvider } from "@apollo/react-testing";
 import { fireEvent, render, screen } from "@testing-library/react";
 import { MockedIntersectionObserver } from "@ucm/ui/dist/in-viewport/mocked-intersection-observer";
+import { mockedMatchMedia } from "@ucm/ui/dist/media-query/mocked-match-media";
 import { NextParsedUrlQuery } from "next/dist/server/request-meta";
-import type { FC } from "react";
 
 import { CARS_QUERY_MOCK } from "../../_test/cars-query-mocks";
 import { HomePage } from ".";
@@ -26,6 +26,8 @@ jest.mock("next/router", () => ({ useRouter: () => routerMock }));
 describe(`Testing component '${HomePage.name}' :`, () => {
   it(`should render '${HomePage.name}', then change both filters, then preform an infinite scroll`, async () => {
     window.IntersectionObserver = MockedIntersectionObserver;
+    let callbackMock: (e: MediaQueryListEvent) => void = () => null;
+    window.matchMedia = mockedMatchMedia((callback) => (callbackMock = callback));
 
     const { container } = render(
       <MockedProvider mocks={CARS_QUERY_MOCK} addTypename={false}>
@@ -43,7 +45,7 @@ describe(`Testing component '${HomePage.name}' :`, () => {
 
     // Modify an Option filter (select BMW make):
     fireEvent.click(screen.getByTestId("filters-button"));
-    fireEvent.click(screen.getByText("BMW"));
+    fireEvent.click(screen.getAllByText("BMW")[0]);
     fireEvent.click(screen.getByTestId("popup-container"));
     expect(screen.getByText("Loading")).toBeTruthy();
     expect(container).toMatchSnapshot();

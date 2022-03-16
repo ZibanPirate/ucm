@@ -6,6 +6,7 @@ import { Container } from "@ucm/ui/dist/container";
 import { Filter, Filters } from "@ucm/ui/dist/filters";
 import { Grid } from "@ucm/ui/dist/grid";
 import { InViewport } from "@ucm/ui/dist/in-viewport";
+import { MediaQuery } from "@ucm/ui/dist/media-query";
 import { Popup } from "@ucm/ui/dist/popup";
 import { Toolbar } from "@ucm/ui/dist/toolbar";
 import type { NextPage } from "next";
@@ -96,83 +97,92 @@ export const HomePage: NextPage<{ graphQLFilters?: string[] }> = ({ graphQLFilte
     );
   }, [data?.cars.filters]);
 
+  const FiltersComponent = () => (
+    <Filters
+      margin="1rem"
+      filters={filters || []}
+      onChange={(filterName, optionName, value) => {
+        const newFilters = (filters || []).map((filter) => {
+          if (filter.name !== filterName) return filter;
+          switch (filter.type) {
+            case "options":
+              return {
+                ...filter,
+                options: filter.options.map((option) =>
+                  option.name !== optionName ? option : { ...option, checked: value as boolean },
+                ),
+              };
+
+            case "range":
+              return {
+                ...filter,
+                options: { ...filter.options, [optionName]: value },
+              };
+          }
+        });
+
+        setFilters(newFilters);
+        setInfiniteScroll({ eod: false });
+        const { newFiltersOnURLQuery, graphQLQueryFilters } = extractSelectedFilters(newFilters);
+
+        refetch({ filters: graphQLQueryFilters });
+
+        const newURL = `/${recordToURLQuery(newFiltersOnURLQuery)}`;
+        router.push(newURL, undefined, { shallow: true });
+      }}
+    />
+  );
+
   return (
     <Container>
-      <Toolbar margin="1rem 0">
-        <Button
-          onClick={() => setShownPopups({ ...shownPopups, filters: true })}
-          data-testid="filters-button"
+      <MediaQuery query="(max-width: 800px)">
+        <Toolbar margin="1rem 0">
+          <Button
+            onClick={() => setShownPopups({ ...shownPopups, filters: true })}
+            data-testid="filters-button"
+          >
+            Filters
+          </Button>
+        </Toolbar>
+        <Popup
+          shown={shownPopups.filters}
+          onClose={() => setShownPopups({ ...shownPopups, filters: false })}
+          containerProps={{ "data-testid": "popup-container" }}
         >
-          Filters
-        </Button>
-      </Toolbar>
-      <br />
-      <Popup
-        shown={shownPopups.filters}
-        onClose={() => setShownPopups({ ...shownPopups, filters: false })}
-        containerProps={{ "data-testid": "popup-container" }}
-      >
-        <Filters
-          filters={filters || []}
-          onChange={(filterName, optionName, value) => {
-            const newFilters = (filters || []).map((filter) => {
-              if (filter.name !== filterName) return filter;
-              switch (filter.type) {
-                case "options":
-                  return {
-                    ...filter,
-                    options: filter.options.map((option) =>
-                      option.name !== optionName
-                        ? option
-                        : { ...option, checked: value as boolean },
-                    ),
-                  };
-
-                case "range":
-                  return {
-                    ...filter,
-                    options: { ...filter.options, [optionName]: value },
-                  };
-              }
-            });
-            setFilters(newFilters);
-            setInfiniteScroll({ eod: false });
-            const { newFiltersOnURLQuery, graphQLQueryFilters } =
-              extractSelectedFilters(newFilters);
-
-            refetch({ filters: graphQLQueryFilters });
-
-            const newURL = `/${recordToURLQuery(newFiltersOnURLQuery)}`;
-            router.push(newURL, undefined, { shallow: true });
-          }}
-        />
-      </Popup>
+          <FiltersComponent />
+        </Popup>
+      </MediaQuery>
       <Grid>
-        {loading
-          ? "Loading"
-          : !data
-          ? "Error Loading, please try again later :("
-          : data.cars.result.map((car, index) => (
-              <CarCard
-                key={index}
-                image={car.image}
-                make={car.make}
-                model={car.model}
-                price={car.price}
-                description={`${car.power} HP ${car.fuel} engine, ran for ${car.mileage} Km since ${car.firstRegistration}, with a combined consumption of ${car.consumptionCombined} (${car.consumptionUnit}) and CO2 emission of ${car.co2} (g/Km)`}
-                LinkWrapper={(props) => <Link href={`/car/${car.offerID}`} shallow {...props} />}
-              />
-            ))}
+        <MediaQuery query="(min-width: 800px)">
+          <FiltersComponent />
+        </MediaQuery>
+        <Grid margin="1rem">
+          {loading
+            ? "Loading"
+            : !data
+            ? "Error Loading, please try again later :("
+            : data.cars.result.map((car) => (
+                <CarCard
+                  key={`${car.offerID}-`}
+                  image={car.image}
+                  make={car.make}
+                  model={car.model}
+                  price={car.price}
+                  description={`${car.power} HP ${car.fuel} engine, ran for ${car.mileage} Km since ${car.firstRegistration}, with a combined consumption of ${car.consumptionCombined} (${car.consumptionUnit}) and CO2 emission of ${car.co2} (g/Km)`}
+                  LinkWrapper={(props) => <Link href={`/car/${car.offerID}`} shallow {...props} />}
+                />
+              ))}
+          <InViewport
+            onVisibilityChanged={async (action) => {
+              if (action === "entered" && !infiniteScroll.eod) {
+                const skip = data?.cars.result.length || 0;
+                const moreResults = await fetchMore({ variables: { skip } });
+                setInfiniteScroll({ eod: moreResults.data.cars.result.length <= 0 });
+              }
+            }}
+          />
+        </Grid>
       </Grid>
-      <InViewport
-        onVisibilityChanged={async (action) => {
-          if (action === "entered" && !infiniteScroll.eod) {
-            const skip = data?.cars.result.length || 0;
-            const moreResults = await fetchMore({ variables: { skip } });
-            setInfiniteScroll({ eod: moreResults.data.cars.result.length <= 0 });
-          }
-        }}
-      />
     </Container>
   );
 };

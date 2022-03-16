@@ -3,8 +3,19 @@
 exports[`Testing component 'CarPage' : should render with Error message on network error 1`] = `
 <div>
   <div
-    style="max-width: 900px; margin: auto;"
+    style="max-width: 1200px; margin: auto;"
   >
+    <div
+      style="display: flex; flex-direction: row; flex: 1; margin: 1rem 0px; justify-content: start;"
+    >
+      <button
+        class="ucm-ui-button"
+        data-testid="home-button"
+        style="font-size: medium; margin: initial;"
+      >
+        &lt; All Cars
+      </button>
+    </div>
     Loading
   </div>
 </div>
@@ -13,8 +24,19 @@ exports[`Testing component 'CarPage' : should render with Error message on netwo
 exports[`Testing component 'CarPage' : should render with Error message on network error 2`] = `
 <div>
   <div
-    style="max-width: 900px; margin: auto;"
+    style="max-width: 1200px; margin: auto;"
   >
+    <div
+      style="display: flex; flex-direction: row; flex: 1; margin: 1rem 0px; justify-content: start;"
+    >
+      <button
+        class="ucm-ui-button"
+        data-testid="home-button"
+        style="font-size: medium; margin: initial;"
+      >
+        &lt; All Cars
+      </button>
+    </div>
     Error Loading, please try again later :(
   </div>
 </div>
@@ -23,8 +45,19 @@ exports[`Testing component 'CarPage' : should render with Error message on netwo
 exports[`Testing component 'CarPage' : should render with info from test Car 100 1`] = `
 <div>
   <div
-    style="max-width: 900px; margin: auto;"
+    style="max-width: 1200px; margin: auto;"
   >
+    <div
+      style="display: flex; flex-direction: row; flex: 1; margin: 1rem 0px; justify-content: start;"
+    >
+      <button
+        class="ucm-ui-button"
+        data-testid="home-button"
+        style="font-size: medium; margin: initial;"
+      >
+        &lt; All Cars
+      </button>
+    </div>
     Loading
   </div>
 </div>
@@ -33,8 +66,26 @@ exports[`Testing component 'CarPage' : should render with info from test Car 100
 exports[`Testing component 'CarPage' : should render with info from test Car 100 2`] = `
 <div>
   <div
-    style="max-width: 900px; margin: auto;"
+    style="max-width: 1200px; margin: auto;"
   >
+    <div
+      style="display: flex; flex-direction: row; flex: 1; margin: 1rem 0px; justify-content: start;"
+    >
+      <button
+        class="ucm-ui-button"
+        data-testid="home-button"
+        style="font-size: medium; margin: initial;"
+      >
+        &lt; All Cars
+      </button>
+      <button
+        class="ucm-ui-button"
+        data-testid="make-button"
+        style="font-size: medium; margin: initial;"
+      >
+        &lt; make-100
+      </button>
+    </div>
     <div>
       <img
         src="/assets/image-100"

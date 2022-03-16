@@ -4,7 +4,8 @@ export const NumberInput: FC<{
   label?: string;
   value: number;
   onChange?: (value: number) => void;
-}> = ({ label = "", value, onChange = () => null, ...props }) => {
+  margin?: string;
+}> = ({ label = "", value, onChange = () => null, margin = "initial", ...props }) => {
   return (
     <div>
       <input
@@ -13,9 +14,12 @@ export const NumberInput: FC<{
         type="number"
         onChange={(e) => onChange(Number(e.target.value))}
         value={value}
+        style={{ margin }}
         {...props}
       />
-      <label htmlFor={label}>{label}</label>
+      <label style={{ margin: "0.3rem" }} htmlFor={label}>
+        {label}
+      </label>
     </div>
   );
 };

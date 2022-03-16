@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Testing component 'MediaQuery' : should render with 4 div elements then hide responsively: hidden 1`] = `<div />`;
+
+exports[`Testing component 'MediaQuery' : should render with 4 div elements then hide responsively: shown 1`] = `
+<div>
+  <div>
+    1
+  </div>
+  <div>
+    2
+  </div>
+  <div>
+    3
+  </div>
+  <div>
+    4
+  </div>
+</div>
+`;

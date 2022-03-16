@@ -3,7 +3,7 @@
 exports[`Testing component 'Filters' : should render with options of all types, then change their values 1`] = `
 <div>
   <div
-    style="padding: 0px 1rem 1rem;"
+    style="padding: 0px 1rem 1rem; background-color: lightgray; margin: initial;"
   >
     <div
       style="padding-top: 1rem;"
@@ -62,11 +62,13 @@ exports[`Testing component 'Filters' : should render with options of all types, 
           <input
             id="Min"
             name="Min"
+            style="margin: 0.3rem;"
             type="number"
             value="20000"
           />
           <label
             for="Min"
+            style="margin: 0.3rem;"
           >
             Min
           </label>
@@ -75,11 +77,13 @@ exports[`Testing component 'Filters' : should render with options of all types, 
           <input
             id="Max"
             name="Max"
+            style="margin: 0.3rem;"
             type="number"
             value="100000"
           />
           <label
             for="Max"
+            style="margin: 0.3rem;"
           >
             Max
           </label>

@@ -1,5 +1,6 @@
 import "../styles/globals.css";
 import "@ucm/ui/dist/button/index.css";
+import "@ucm/ui/dist/car-card/index.css";
 
 import { ApolloProvider } from "@apollo/client";
 import type { AppProps } from "next/app";

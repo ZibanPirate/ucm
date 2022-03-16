@@ -1,6 +1,6 @@
 import type { FC } from "react";
 
-export const Grid: FC = ({ children }) => (
+export const Grid: FC<{ margin?: string }> = ({ children, margin = "auto" }) => (
   <div
     style={{
       display: "flex",
@@ -9,7 +9,8 @@ export const Grid: FC = ({ children }) => (
       justifyContent: "center",
       flexWrap: "wrap",
       gap: "1rem",
-      margin: "auto",
+      height: "fit-content",
+      margin,
     }}
   >
     {children}

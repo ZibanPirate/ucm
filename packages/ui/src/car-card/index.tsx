@@ -1,7 +1,7 @@
 import type { FC, FunctionComponent } from "react";
 
 import { Button } from "../button";
-import { Image, imageSizeToStyle } from "../image";
+import { Image } from "../image";
 import { Text } from "../text";
 
 export const CarCard: FC<{
@@ -14,13 +14,13 @@ export const CarCard: FC<{
 }> = ({ image, make, model, price, description, LinkWrapper }) => (
   <div
     style={{
-      width: imageSizeToStyle["md"],
       backgroundColor: "whitesmoke",
       display: "flex",
       flexDirection: "column",
     }}
+    className="ucm-ui-car-card"
   >
-    <Image url={image} />
+    <Image url={image} size="auto" />
     <Text size="lg" margin={"0.3rem .6rem"}>
       {`${make} ${model}`}
     </Text>
