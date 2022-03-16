@@ -3,6 +3,7 @@ import { fireEvent, render, screen } from "@testing-library/react";
 import { MockedIntersectionObserver } from "@ucm/ui/dist/in-viewport/mocked-intersection-observer";
 import { mockedMatchMedia } from "@ucm/ui/dist/media-query/mocked-match-media";
 import { NextParsedUrlQuery } from "next/dist/server/request-meta";
+import { act } from "react-dom/test-utils";
 
 import { CARS_QUERY_MOCK } from "../../_test/cars-query-mocks";
 import { HomePage } from ".";
@@ -53,11 +54,17 @@ describe(`Testing component '${HomePage.name}' :`, () => {
     expect(container).toMatchSnapshot();
 
     // Modify a Range filter (max power):
-    fireEvent.click(screen.getByTestId("filters-button"));
-    fireEvent.change(screen.getByLabelText("Min"), { target: { value: 50 } });
-    fireEvent.click(screen.getByTestId("popup-container"));
-    expect(screen.getByText("Loading")).toBeTruthy();
-    expect(container).toMatchSnapshot();
+    act(async () => {
+      fireEvent.click(screen.getByTestId("filters-button"));
+      fireEvent.change(screen.getByLabelText("Min"), { target: { value: 50 } });
+      fireEvent.click(screen.getByTestId("popup-container"));
+      jest.useFakeTimers();
+      jest.advanceTimersByTime(5000);
+      await screen.findByText("Loading");
+      expect(screen.getByText("Loading")).toBeTruthy();
+      jest.useRealTimers();
+      expect(container).toMatchSnapshot();
+    });
     await new Promise((resolve) => setTimeout(() => resolve({}), 0));
     expect(container).toMatchSnapshot();
 
@@ -67,11 +74,17 @@ describe(`Testing component '${HomePage.name}' :`, () => {
     expect(container).toMatchSnapshot();
 
     // Network error:
-    fireEvent.click(screen.getByTestId("filters-button"));
-    fireEvent.change(screen.getByLabelText("Max"), { target: { value: 60 } });
-    fireEvent.click(screen.getByTestId("popup-container"));
-    expect(screen.getByText("Loading")).toBeTruthy();
-    expect(container).toMatchSnapshot();
+    act(async () => {
+      fireEvent.click(screen.getByTestId("filters-button"));
+      fireEvent.change(screen.getByLabelText("Max"), { target: { value: 60 } });
+      fireEvent.click(screen.getByTestId("popup-container"));
+      jest.useFakeTimers();
+      jest.advanceTimersByTime(5000);
+      await screen.findByText("Loading");
+      expect(screen.getByText("Loading")).toBeTruthy();
+      jest.useRealTimers();
+      expect(container).toMatchSnapshot();
+    });
     await new Promise((resolve) => setTimeout(() => resolve({}), 0));
     expect(container).toMatchSnapshot();
   });

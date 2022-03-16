@@ -64,7 +64,7 @@ exports[`Testing component 'Filters' : should render with options of all types, 
             name="Min"
             style="margin: 0.3rem;"
             type="number"
-            value="20000"
+            value="20001"
           />
           <label
             for="Min"
@@ -79,7 +79,7 @@ exports[`Testing component 'Filters' : should render with options of all types, 
             name="Max"
             style="margin: 0.3rem;"
             type="number"
-            value="100000"
+            value="100001"
           />
           <label
             for="Max"

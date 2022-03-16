@@ -12,7 +12,8 @@
     "react-dom": "17.0.2"
   },
   "devDependencies": {
-    "@ucm/tooling": "*"
+    "@ucm/tooling": "*",
+    "use-debounce": "^7.0.1"
   },
   "license": "MIT",
   "lint-staged": {

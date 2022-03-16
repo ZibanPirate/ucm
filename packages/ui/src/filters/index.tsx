@@ -65,12 +65,14 @@ export const Filters: FC<{
                   label={"Min"}
                   onChange={(value) => onChange(filter.name, "min", value)}
                   margin="0.3rem"
+                  debounce={1000}
                 />
                 <NumberInput
                   value={filter.options.max}
                   label={"Max"}
                   onChange={(value) => onChange(filter.name, "max", value)}
                   margin="0.3rem"
+                  debounce={1000}
                 />
               </>
             )}

@@ -9,7 +9,7 @@ exports[`Testing component 'NumberInput' : should render with initial value and 
       name=""
       style="margin: initial;"
       type="number"
-      value="100"
+      value="80000"
     />
     <label
       for=""

@@ -1117,7 +1117,7 @@ exports[`Testing component 'HomePage' : should render 'HomePage', then change bo
                   name="Min"
                   style="margin: 0.3rem;"
                   type="number"
-                  value="50"
+                  value="0"
                 />
                 <label
                   for="Min"
@@ -1223,7 +1223,7 @@ exports[`Testing component 'HomePage' : should render 'HomePage', then change bo
                 name="Min"
                 style="margin: 0.3rem;"
                 type="number"
-                value="50"
+                value="0"
               />
               <label
                 for="Min"
@@ -1253,7 +1253,96 @@ exports[`Testing component 'HomePage' : should render 'HomePage', then change bo
       <div
         style="display: flex; flex-direction: row; flex: 1; justify-content: center; flex-wrap: wrap; gap: 1rem; margin: 1rem;"
       >
-        Loading
+        <div
+          class="ucm-ui-car-card"
+          style="background-color: whitesmoke; display: flex; flex-direction: column;"
+        >
+          <img
+            src="/assets/image-1"
+            style="object-fit: cover; width: 100%;"
+          />
+          <span
+            style="font-size: large; margin: 0.3rem .6rem; display: flex;"
+          >
+            make-1 model-1
+          </span>
+          <span
+            style="font-size: medium; margin: 0.3rem .6rem; display: flex;"
+          >
+            €7416.00
+          </span>
+          <span
+            style="font-size: small; margin: 0.3rem .6rem .6rem; display: flex; flex: 1;"
+          >
+            44 HP fuel-1 engine, ran for 62606 Km since firstRegistration-1, with a combined consumption of 4.5 (consumptionUnit-1) and CO2 emission of 107 (g/Km)
+          </span>
+          <button
+            class="ucm-ui-button"
+            style="font-size: small; margin: initial;"
+          >
+            See more
+          </button>
+        </div>
+        <div
+          class="ucm-ui-car-card"
+          style="background-color: whitesmoke; display: flex; flex-direction: column;"
+        >
+          <img
+            src="/assets/image-2"
+            style="object-fit: cover; width: 100%;"
+          />
+          <span
+            style="font-size: large; margin: 0.3rem .6rem; display: flex;"
+          >
+            make-2 model-2
+          </span>
+          <span
+            style="font-size: medium; margin: 0.3rem .6rem; display: flex;"
+          >
+            €7416.00
+          </span>
+          <span
+            style="font-size: small; margin: 0.3rem .6rem .6rem; display: flex; flex: 1;"
+          >
+            44 HP fuel-2 engine, ran for 62606 Km since firstRegistration-2, with a combined consumption of 4.5 (consumptionUnit-2) and CO2 emission of 107 (g/Km)
+          </span>
+          <button
+            class="ucm-ui-button"
+            style="font-size: small; margin: initial;"
+          >
+            See more
+          </button>
+        </div>
+        <div
+          class="ucm-ui-car-card"
+          style="background-color: whitesmoke; display: flex; flex-direction: column;"
+        >
+          <img
+            src="/assets/image-3"
+            style="object-fit: cover; width: 100%;"
+          />
+          <span
+            style="font-size: large; margin: 0.3rem .6rem; display: flex;"
+          >
+            make-3 model-3
+          </span>
+          <span
+            style="font-size: medium; margin: 0.3rem .6rem; display: flex;"
+          >
+            €7416.00
+          </span>
+          <span
+            style="font-size: small; margin: 0.3rem .6rem .6rem; display: flex; flex: 1;"
+          >
+            44 HP fuel-3 engine, ran for 62606 Km since firstRegistration-3, with a combined consumption of 4.5 (consumptionUnit-3) and CO2 emission of 107 (g/Km)
+          </span>
+          <button
+            class="ucm-ui-button"
+            style="font-size: small; margin: initial;"
+          >
+            See more
+          </button>
+        </div>
         <div />
       </div>
     </div>
@@ -1358,7 +1447,7 @@ exports[`Testing component 'HomePage' : should render 'HomePage', then change bo
                   name="Min"
                   style="margin: 0.3rem;"
                   type="number"
-                  value="50"
+                  value="0"
                 />
                 <label
                   for="Min"
@@ -1464,7 +1553,7 @@ exports[`Testing component 'HomePage' : should render 'HomePage', then change bo
                 name="Min"
                 style="margin: 0.3rem;"
                 type="number"
-                value="50"
+                value="0"
               />
               <label
                 for="Min"
@@ -1499,13 +1588,13 @@ exports[`Testing component 'HomePage' : should render 'HomePage', then change bo
           style="background-color: whitesmoke; display: flex; flex-direction: column;"
         >
           <img
-            src="/assets/image-5"
+            src="/assets/image-1"
             style="object-fit: cover; width: 100%;"
           />
           <span
             style="font-size: large; margin: 0.3rem .6rem; display: flex;"
           >
-            make-5 model-5
+            make-1 model-1
           </span>
           <span
             style="font-size: medium; margin: 0.3rem .6rem; display: flex;"
@@ -1515,7 +1604,7 @@ exports[`Testing component 'HomePage' : should render 'HomePage', then change bo
           <span
             style="font-size: small; margin: 0.3rem .6rem .6rem; display: flex; flex: 1;"
           >
-            44 HP fuel-5 engine, ran for 62606 Km since firstRegistration-5, with a combined consumption of 4.5 (consumptionUnit-5) and CO2 emission of 107 (g/Km)
+            44 HP fuel-1 engine, ran for 62606 Km since firstRegistration-1, with a combined consumption of 4.5 (consumptionUnit-1) and CO2 emission of 107 (g/Km)
           </span>
           <button
             class="ucm-ui-button"
@@ -1529,13 +1618,13 @@ exports[`Testing component 'HomePage' : should render 'HomePage', then change bo
           style="background-color: whitesmoke; display: flex; flex-direction: column;"
         >
           <img
-            src="/assets/image-6"
+            src="/assets/image-2"
             style="object-fit: cover; width: 100%;"
           />
           <span
             style="font-size: large; margin: 0.3rem .6rem; display: flex;"
           >
-            make-6 model-6
+            make-2 model-2
           </span>
           <span
             style="font-size: medium; margin: 0.3rem .6rem; display: flex;"
@@ -1545,7 +1634,7 @@ exports[`Testing component 'HomePage' : should render 'HomePage', then change bo
           <span
             style="font-size: small; margin: 0.3rem .6rem .6rem; display: flex; flex: 1;"
           >
-            44 HP fuel-6 engine, ran for 62606 Km since firstRegistration-6, with a combined consumption of 4.5 (consumptionUnit-6) and CO2 emission of 107 (g/Km)
+            44 HP fuel-2 engine, ran for 62606 Km since firstRegistration-2, with a combined consumption of 4.5 (consumptionUnit-2) and CO2 emission of 107 (g/Km)
           </span>
           <button
             class="ucm-ui-button"
@@ -1559,13 +1648,13 @@ exports[`Testing component 'HomePage' : should render 'HomePage', then change bo
           style="background-color: whitesmoke; display: flex; flex-direction: column;"
         >
           <img
-            src="/assets/image-7"
+            src="/assets/image-3"
             style="object-fit: cover; width: 100%;"
           />
           <span
             style="font-size: large; margin: 0.3rem .6rem; display: flex;"
           >
-            make-7 model-7
+            make-3 model-3
           </span>
           <span
             style="font-size: medium; margin: 0.3rem .6rem; display: flex;"
@@ -1575,307 +1664,7 @@ exports[`Testing component 'HomePage' : should render 'HomePage', then change bo
           <span
             style="font-size: small; margin: 0.3rem .6rem .6rem; display: flex; flex: 1;"
           >
-            44 HP fuel-7 engine, ran for 62606 Km since firstRegistration-7, with a combined consumption of 4.5 (consumptionUnit-7) and CO2 emission of 107 (g/Km)
-          </span>
-          <button
-            class="ucm-ui-button"
-            style="font-size: small; margin: initial;"
-          >
-            See more
-          </button>
-        </div>
-        <div
-          class="ucm-ui-car-card"
-          style="background-color: whitesmoke; display: flex; flex-direction: column;"
-        >
-          <img
-            src="/assets/image-8"
-            style="object-fit: cover; width: 100%;"
-          />
-          <span
-            style="font-size: large; margin: 0.3rem .6rem; display: flex;"
-          >
-            make-8 model-8
-          </span>
-          <span
-            style="font-size: medium; margin: 0.3rem .6rem; display: flex;"
-          >
-            €7416.00
-          </span>
-          <span
-            style="font-size: small; margin: 0.3rem .6rem .6rem; display: flex; flex: 1;"
-          >
-            44 HP fuel-8 engine, ran for 62606 Km since firstRegistration-8, with a combined consumption of 4.5 (consumptionUnit-8) and CO2 emission of 107 (g/Km)
-          </span>
-          <button
-            class="ucm-ui-button"
-            style="font-size: small; margin: initial;"
-          >
-            See more
-          </button>
-        </div>
-        <div
-          class="ucm-ui-car-card"
-          style="background-color: whitesmoke; display: flex; flex-direction: column;"
-        >
-          <img
-            src="/assets/image-9"
-            style="object-fit: cover; width: 100%;"
-          />
-          <span
-            style="font-size: large; margin: 0.3rem .6rem; display: flex;"
-          >
-            make-9 model-9
-          </span>
-          <span
-            style="font-size: medium; margin: 0.3rem .6rem; display: flex;"
-          >
-            €7416.00
-          </span>
-          <span
-            style="font-size: small; margin: 0.3rem .6rem .6rem; display: flex; flex: 1;"
-          >
-            44 HP fuel-9 engine, ran for 62606 Km since firstRegistration-9, with a combined consumption of 4.5 (consumptionUnit-9) and CO2 emission of 107 (g/Km)
-          </span>
-          <button
-            class="ucm-ui-button"
-            style="font-size: small; margin: initial;"
-          >
-            See more
-          </button>
-        </div>
-        <div
-          class="ucm-ui-car-card"
-          style="background-color: whitesmoke; display: flex; flex-direction: column;"
-        >
-          <img
-            src="/assets/image-10"
-            style="object-fit: cover; width: 100%;"
-          />
-          <span
-            style="font-size: large; margin: 0.3rem .6rem; display: flex;"
-          >
-            make-10 model-10
-          </span>
-          <span
-            style="font-size: medium; margin: 0.3rem .6rem; display: flex;"
-          >
-            €7416.00
-          </span>
-          <span
-            style="font-size: small; margin: 0.3rem .6rem .6rem; display: flex; flex: 1;"
-          >
-            44 HP fuel-10 engine, ran for 62606 Km since firstRegistration-10, with a combined consumption of 4.5 (consumptionUnit-10) and CO2 emission of 107 (g/Km)
-          </span>
-          <button
-            class="ucm-ui-button"
-            style="font-size: small; margin: initial;"
-          >
-            See more
-          </button>
-        </div>
-        <div
-          class="ucm-ui-car-card"
-          style="background-color: whitesmoke; display: flex; flex-direction: column;"
-        >
-          <img
-            src="/assets/image-11"
-            style="object-fit: cover; width: 100%;"
-          />
-          <span
-            style="font-size: large; margin: 0.3rem .6rem; display: flex;"
-          >
-            make-11 model-11
-          </span>
-          <span
-            style="font-size: medium; margin: 0.3rem .6rem; display: flex;"
-          >
-            €7416.00
-          </span>
-          <span
-            style="font-size: small; margin: 0.3rem .6rem .6rem; display: flex; flex: 1;"
-          >
-            44 HP fuel-11 engine, ran for 62606 Km since firstRegistration-11, with a combined consumption of 4.5 (consumptionUnit-11) and CO2 emission of 107 (g/Km)
-          </span>
-          <button
-            class="ucm-ui-button"
-            style="font-size: small; margin: initial;"
-          >
-            See more
-          </button>
-        </div>
-        <div
-          class="ucm-ui-car-card"
-          style="background-color: whitesmoke; display: flex; flex-direction: column;"
-        >
-          <img
-            src="/assets/image-12"
-            style="object-fit: cover; width: 100%;"
-          />
-          <span
-            style="font-size: large; margin: 0.3rem .6rem; display: flex;"
-          >
-            make-12 model-12
-          </span>
-          <span
-            style="font-size: medium; margin: 0.3rem .6rem; display: flex;"
-          >
-            €7416.00
-          </span>
-          <span
-            style="font-size: small; margin: 0.3rem .6rem .6rem; display: flex; flex: 1;"
-          >
-            44 HP fuel-12 engine, ran for 62606 Km since firstRegistration-12, with a combined consumption of 4.5 (consumptionUnit-12) and CO2 emission of 107 (g/Km)
-          </span>
-          <button
-            class="ucm-ui-button"
-            style="font-size: small; margin: initial;"
-          >
-            See more
-          </button>
-        </div>
-        <div
-          class="ucm-ui-car-card"
-          style="background-color: whitesmoke; display: flex; flex-direction: column;"
-        >
-          <img
-            src="/assets/image-13"
-            style="object-fit: cover; width: 100%;"
-          />
-          <span
-            style="font-size: large; margin: 0.3rem .6rem; display: flex;"
-          >
-            make-13 model-13
-          </span>
-          <span
-            style="font-size: medium; margin: 0.3rem .6rem; display: flex;"
-          >
-            €7416.00
-          </span>
-          <span
-            style="font-size: small; margin: 0.3rem .6rem .6rem; display: flex; flex: 1;"
-          >
-            44 HP fuel-13 engine, ran for 62606 Km since firstRegistration-13, with a combined consumption of 4.5 (consumptionUnit-13) and CO2 emission of 107 (g/Km)
-          </span>
-          <button
-            class="ucm-ui-button"
-            style="font-size: small; margin: initial;"
-          >
-            See more
-          </button>
-        </div>
-        <div
-          class="ucm-ui-car-card"
-          style="background-color: whitesmoke; display: flex; flex-direction: column;"
-        >
-          <img
-            src="/assets/image-14"
-            style="object-fit: cover; width: 100%;"
-          />
-          <span
-            style="font-size: large; margin: 0.3rem .6rem; display: flex;"
-          >
-            make-14 model-14
-          </span>
-          <span
-            style="font-size: medium; margin: 0.3rem .6rem; display: flex;"
-          >
-            €7416.00
-          </span>
-          <span
-            style="font-size: small; margin: 0.3rem .6rem .6rem; display: flex; flex: 1;"
-          >
-            44 HP fuel-14 engine, ran for 62606 Km since firstRegistration-14, with a combined consumption of 4.5 (consumptionUnit-14) and CO2 emission of 107 (g/Km)
-          </span>
-          <button
-            class="ucm-ui-button"
-            style="font-size: small; margin: initial;"
-          >
-            See more
-          </button>
-        </div>
-        <div
-          class="ucm-ui-car-card"
-          style="background-color: whitesmoke; display: flex; flex-direction: column;"
-        >
-          <img
-            src="/assets/image-15"
-            style="object-fit: cover; width: 100%;"
-          />
-          <span
-            style="font-size: large; margin: 0.3rem .6rem; display: flex;"
-          >
-            make-15 model-15
-          </span>
-          <span
-            style="font-size: medium; margin: 0.3rem .6rem; display: flex;"
-          >
-            €7416.00
-          </span>
-          <span
-            style="font-size: small; margin: 0.3rem .6rem .6rem; display: flex; flex: 1;"
-          >
-            44 HP fuel-15 engine, ran for 62606 Km since firstRegistration-15, with a combined consumption of 4.5 (consumptionUnit-15) and CO2 emission of 107 (g/Km)
-          </span>
-          <button
-            class="ucm-ui-button"
-            style="font-size: small; margin: initial;"
-          >
-            See more
-          </button>
-        </div>
-        <div
-          class="ucm-ui-car-card"
-          style="background-color: whitesmoke; display: flex; flex-direction: column;"
-        >
-          <img
-            src="/assets/image-16"
-            style="object-fit: cover; width: 100%;"
-          />
-          <span
-            style="font-size: large; margin: 0.3rem .6rem; display: flex;"
-          >
-            make-16 model-16
-          </span>
-          <span
-            style="font-size: medium; margin: 0.3rem .6rem; display: flex;"
-          >
-            €7416.00
-          </span>
-          <span
-            style="font-size: small; margin: 0.3rem .6rem .6rem; display: flex; flex: 1;"
-          >
-            44 HP fuel-16 engine, ran for 62606 Km since firstRegistration-16, with a combined consumption of 4.5 (consumptionUnit-16) and CO2 emission of 107 (g/Km)
-          </span>
-          <button
-            class="ucm-ui-button"
-            style="font-size: small; margin: initial;"
-          >
-            See more
-          </button>
-        </div>
-        <div
-          class="ucm-ui-car-card"
-          style="background-color: whitesmoke; display: flex; flex-direction: column;"
-        >
-          <img
-            src="/assets/image-17"
-            style="object-fit: cover; width: 100%;"
-          />
-          <span
-            style="font-size: large; margin: 0.3rem .6rem; display: flex;"
-          >
-            make-17 model-17
-          </span>
-          <span
-            style="font-size: medium; margin: 0.3rem .6rem; display: flex;"
-          >
-            €7416.00
-          </span>
-          <span
-            style="font-size: small; margin: 0.3rem .6rem .6rem; display: flex; flex: 1;"
-          >
-            44 HP fuel-17 engine, ran for 62606 Km since firstRegistration-17, with a combined consumption of 4.5 (consumptionUnit-17) and CO2 emission of 107 (g/Km)
+            44 HP fuel-3 engine, ran for 62606 Km since firstRegistration-3, with a combined consumption of 4.5 (consumptionUnit-3) and CO2 emission of 107 (g/Km)
           </span>
           <button
             class="ucm-ui-button"
@@ -1988,7 +1777,7 @@ exports[`Testing component 'HomePage' : should render 'HomePage', then change bo
                   name="Min"
                   style="margin: 0.3rem;"
                   type="number"
-                  value="50"
+                  value="0"
                 />
                 <label
                   for="Min"
@@ -2003,7 +1792,7 @@ exports[`Testing component 'HomePage' : should render 'HomePage', then change bo
                   name="Max"
                   style="margin: 0.3rem;"
                   type="number"
-                  value="0"
+                  value="60"
                 />
                 <label
                   for="Max"
@@ -2094,7 +1883,7 @@ exports[`Testing component 'HomePage' : should render 'HomePage', then change bo
                 name="Min"
                 style="margin: 0.3rem;"
                 type="number"
-                value="50"
+                value="0"
               />
               <label
                 for="Min"
@@ -2109,7 +1898,7 @@ exports[`Testing component 'HomePage' : should render 'HomePage', then change bo
                 name="Max"
                 style="margin: 0.3rem;"
                 type="number"
-                value="0"
+                value="60"
               />
               <label
                 for="Max"
@@ -2124,396 +1913,7 @@ exports[`Testing component 'HomePage' : should render 'HomePage', then change bo
       <div
         style="display: flex; flex-direction: row; flex: 1; justify-content: center; flex-wrap: wrap; gap: 1rem; margin: 1rem;"
       >
-        <div
-          class="ucm-ui-car-card"
-          style="background-color: whitesmoke; display: flex; flex-direction: column;"
-        >
-          <img
-            src="/assets/image-5"
-            style="object-fit: cover; width: 100%;"
-          />
-          <span
-            style="font-size: large; margin: 0.3rem .6rem; display: flex;"
-          >
-            make-5 model-5
-          </span>
-          <span
-            style="font-size: medium; margin: 0.3rem .6rem; display: flex;"
-          >
-            €7416.00
-          </span>
-          <span
-            style="font-size: small; margin: 0.3rem .6rem .6rem; display: flex; flex: 1;"
-          >
-            44 HP fuel-5 engine, ran for 62606 Km since firstRegistration-5, with a combined consumption of 4.5 (consumptionUnit-5) and CO2 emission of 107 (g/Km)
-          </span>
-          <button
-            class="ucm-ui-button"
-            style="font-size: small; margin: initial;"
-          >
-            See more
-          </button>
-        </div>
-        <div
-          class="ucm-ui-car-card"
-          style="background-color: whitesmoke; display: flex; flex-direction: column;"
-        >
-          <img
-            src="/assets/image-6"
-            style="object-fit: cover; width: 100%;"
-          />
-          <span
-            style="font-size: large; margin: 0.3rem .6rem; display: flex;"
-          >
-            make-6 model-6
-          </span>
-          <span
-            style="font-size: medium; margin: 0.3rem .6rem; display: flex;"
-          >
-            €7416.00
-          </span>
-          <span
-            style="font-size: small; margin: 0.3rem .6rem .6rem; display: flex; flex: 1;"
-          >
-            44 HP fuel-6 engine, ran for 62606 Km since firstRegistration-6, with a combined consumption of 4.5 (consumptionUnit-6) and CO2 emission of 107 (g/Km)
-          </span>
-          <button
-            class="ucm-ui-button"
-            style="font-size: small; margin: initial;"
-          >
-            See more
-          </button>
-        </div>
-        <div
-          class="ucm-ui-car-card"
-          style="background-color: whitesmoke; display: flex; flex-direction: column;"
-        >
-          <img
-            src="/assets/image-7"
-            style="object-fit: cover; width: 100%;"
-          />
-          <span
-            style="font-size: large; margin: 0.3rem .6rem; display: flex;"
-          >
-            make-7 model-7
-          </span>
-          <span
-            style="font-size: medium; margin: 0.3rem .6rem; display: flex;"
-          >
-            €7416.00
-          </span>
-          <span
-            style="font-size: small; margin: 0.3rem .6rem .6rem; display: flex; flex: 1;"
-          >
-            44 HP fuel-7 engine, ran for 62606 Km since firstRegistration-7, with a combined consumption of 4.5 (consumptionUnit-7) and CO2 emission of 107 (g/Km)
-          </span>
-          <button
-            class="ucm-ui-button"
-            style="font-size: small; margin: initial;"
-          >
-            See more
-          </button>
-        </div>
-        <div
-          class="ucm-ui-car-card"
-          style="background-color: whitesmoke; display: flex; flex-direction: column;"
-        >
-          <img
-            src="/assets/image-8"
-            style="object-fit: cover; width: 100%;"
-          />
-          <span
-            style="font-size: large; margin: 0.3rem .6rem; display: flex;"
-          >
-            make-8 model-8
-          </span>
-          <span
-            style="font-size: medium; margin: 0.3rem .6rem; display: flex;"
-          >
-            €7416.00
-          </span>
-          <span
-            style="font-size: small; margin: 0.3rem .6rem .6rem; display: flex; flex: 1;"
-          >
-            44 HP fuel-8 engine, ran for 62606 Km since firstRegistration-8, with a combined consumption of 4.5 (consumptionUnit-8) and CO2 emission of 107 (g/Km)
-          </span>
-          <button
-            class="ucm-ui-button"
-            style="font-size: small; margin: initial;"
-          >
-            See more
-          </button>
-        </div>
-        <div
-          class="ucm-ui-car-card"
-          style="background-color: whitesmoke; display: flex; flex-direction: column;"
-        >
-          <img
-            src="/assets/image-9"
-            style="object-fit: cover; width: 100%;"
-          />
-          <span
-            style="font-size: large; margin: 0.3rem .6rem; display: flex;"
-          >
-            make-9 model-9
-          </span>
-          <span
-            style="font-size: medium; margin: 0.3rem .6rem; display: flex;"
-          >
-            €7416.00
-          </span>
-          <span
-            style="font-size: small; margin: 0.3rem .6rem .6rem; display: flex; flex: 1;"
-          >
-            44 HP fuel-9 engine, ran for 62606 Km since firstRegistration-9, with a combined consumption of 4.5 (consumptionUnit-9) and CO2 emission of 107 (g/Km)
-          </span>
-          <button
-            class="ucm-ui-button"
-            style="font-size: small; margin: initial;"
-          >
-            See more
-          </button>
-        </div>
-        <div
-          class="ucm-ui-car-card"
-          style="background-color: whitesmoke; display: flex; flex-direction: column;"
-        >
-          <img
-            src="/assets/image-10"
-            style="object-fit: cover; width: 100%;"
-          />
-          <span
-            style="font-size: large; margin: 0.3rem .6rem; display: flex;"
-          >
-            make-10 model-10
-          </span>
-          <span
-            style="font-size: medium; margin: 0.3rem .6rem; display: flex;"
-          >
-            €7416.00
-          </span>
-          <span
-            style="font-size: small; margin: 0.3rem .6rem .6rem; display: flex; flex: 1;"
-          >
-            44 HP fuel-10 engine, ran for 62606 Km since firstRegistration-10, with a combined consumption of 4.5 (consumptionUnit-10) and CO2 emission of 107 (g/Km)
-          </span>
-          <button
-            class="ucm-ui-button"
-            style="font-size: small; margin: initial;"
-          >
-            See more
-          </button>
-        </div>
-        <div
-          class="ucm-ui-car-card"
-          style="background-color: whitesmoke; display: flex; flex-direction: column;"
-        >
-          <img
-            src="/assets/image-11"
-            style="object-fit: cover; width: 100%;"
-          />
-          <span
-            style="font-size: large; margin: 0.3rem .6rem; display: flex;"
-          >
-            make-11 model-11
-          </span>
-          <span
-            style="font-size: medium; margin: 0.3rem .6rem; display: flex;"
-          >
-            €7416.00
-          </span>
-          <span
-            style="font-size: small; margin: 0.3rem .6rem .6rem; display: flex; flex: 1;"
-          >
-            44 HP fuel-11 engine, ran for 62606 Km since firstRegistration-11, with a combined consumption of 4.5 (consumptionUnit-11) and CO2 emission of 107 (g/Km)
-          </span>
-          <button
-            class="ucm-ui-button"
-            style="font-size: small; margin: initial;"
-          >
-            See more
-          </button>
-        </div>
-        <div
-          class="ucm-ui-car-card"
-          style="background-color: whitesmoke; display: flex; flex-direction: column;"
-        >
-          <img
-            src="/assets/image-12"
-            style="object-fit: cover; width: 100%;"
-          />
-          <span
-            style="font-size: large; margin: 0.3rem .6rem; display: flex;"
-          >
-            make-12 model-12
-          </span>
-          <span
-            style="font-size: medium; margin: 0.3rem .6rem; display: flex;"
-          >
-            €7416.00
-          </span>
-          <span
-            style="font-size: small; margin: 0.3rem .6rem .6rem; display: flex; flex: 1;"
-          >
-            44 HP fuel-12 engine, ran for 62606 Km since firstRegistration-12, with a combined consumption of 4.5 (consumptionUnit-12) and CO2 emission of 107 (g/Km)
-          </span>
-          <button
-            class="ucm-ui-button"
-            style="font-size: small; margin: initial;"
-          >
-            See more
-          </button>
-        </div>
-        <div
-          class="ucm-ui-car-card"
-          style="background-color: whitesmoke; display: flex; flex-direction: column;"
-        >
-          <img
-            src="/assets/image-13"
-            style="object-fit: cover; width: 100%;"
-          />
-          <span
-            style="font-size: large; margin: 0.3rem .6rem; display: flex;"
-          >
-            make-13 model-13
-          </span>
-          <span
-            style="font-size: medium; margin: 0.3rem .6rem; display: flex;"
-          >
-            €7416.00
-          </span>
-          <span
-            style="font-size: small; margin: 0.3rem .6rem .6rem; display: flex; flex: 1;"
-          >
-            44 HP fuel-13 engine, ran for 62606 Km since firstRegistration-13, with a combined consumption of 4.5 (consumptionUnit-13) and CO2 emission of 107 (g/Km)
-          </span>
-          <button
-            class="ucm-ui-button"
-            style="font-size: small; margin: initial;"
-          >
-            See more
-          </button>
-        </div>
-        <div
-          class="ucm-ui-car-card"
-          style="background-color: whitesmoke; display: flex; flex-direction: column;"
-        >
-          <img
-            src="/assets/image-14"
-            style="object-fit: cover; width: 100%;"
-          />
-          <span
-            style="font-size: large; margin: 0.3rem .6rem; display: flex;"
-          >
-            make-14 model-14
-          </span>
-          <span
-            style="font-size: medium; margin: 0.3rem .6rem; display: flex;"
-          >
-            €7416.00
-          </span>
-          <span
-            style="font-size: small; margin: 0.3rem .6rem .6rem; display: flex; flex: 1;"
-          >
-            44 HP fuel-14 engine, ran for 62606 Km since firstRegistration-14, with a combined consumption of 4.5 (consumptionUnit-14) and CO2 emission of 107 (g/Km)
-          </span>
-          <button
-            class="ucm-ui-button"
-            style="font-size: small; margin: initial;"
-          >
-            See more
-          </button>
-        </div>
-        <div
-          class="ucm-ui-car-card"
-          style="background-color: whitesmoke; display: flex; flex-direction: column;"
-        >
-          <img
-            src="/assets/image-15"
-            style="object-fit: cover; width: 100%;"
-          />
-          <span
-            style="font-size: large; margin: 0.3rem .6rem; display: flex;"
-          >
-            make-15 model-15
-          </span>
-          <span
-            style="font-size: medium; margin: 0.3rem .6rem; display: flex;"
-          >
-            €7416.00
-          </span>
-          <span
-            style="font-size: small; margin: 0.3rem .6rem .6rem; display: flex; flex: 1;"
-          >
-            44 HP fuel-15 engine, ran for 62606 Km since firstRegistration-15, with a combined consumption of 4.5 (consumptionUnit-15) and CO2 emission of 107 (g/Km)
-          </span>
-          <button
-            class="ucm-ui-button"
-            style="font-size: small; margin: initial;"
-          >
-            See more
-          </button>
-        </div>
-        <div
-          class="ucm-ui-car-card"
-          style="background-color: whitesmoke; display: flex; flex-direction: column;"
-        >
-          <img
-            src="/assets/image-16"
-            style="object-fit: cover; width: 100%;"
-          />
-          <span
-            style="font-size: large; margin: 0.3rem .6rem; display: flex;"
-          >
-            make-16 model-16
-          </span>
-          <span
-            style="font-size: medium; margin: 0.3rem .6rem; display: flex;"
-          >
-            €7416.00
-          </span>
-          <span
-            style="font-size: small; margin: 0.3rem .6rem .6rem; display: flex; flex: 1;"
-          >
-            44 HP fuel-16 engine, ran for 62606 Km since firstRegistration-16, with a combined consumption of 4.5 (consumptionUnit-16) and CO2 emission of 107 (g/Km)
-          </span>
-          <button
-            class="ucm-ui-button"
-            style="font-size: small; margin: initial;"
-          >
-            See more
-          </button>
-        </div>
-        <div
-          class="ucm-ui-car-card"
-          style="background-color: whitesmoke; display: flex; flex-direction: column;"
-        >
-          <img
-            src="/assets/image-17"
-            style="object-fit: cover; width: 100%;"
-          />
-          <span
-            style="font-size: large; margin: 0.3rem .6rem; display: flex;"
-          >
-            make-17 model-17
-          </span>
-          <span
-            style="font-size: medium; margin: 0.3rem .6rem; display: flex;"
-          >
-            €7416.00
-          </span>
-          <span
-            style="font-size: small; margin: 0.3rem .6rem .6rem; display: flex; flex: 1;"
-          >
-            44 HP fuel-17 engine, ran for 62606 Km since firstRegistration-17, with a combined consumption of 4.5 (consumptionUnit-17) and CO2 emission of 107 (g/Km)
-          </span>
-          <button
-            class="ucm-ui-button"
-            style="font-size: small; margin: initial;"
-          >
-            See more
-          </button>
-        </div>
+        Loading
         <div />
       </div>
     </div>
@@ -2618,7 +2018,7 @@ exports[`Testing component 'HomePage' : should render 'HomePage', then change bo
                   name="Min"
                   style="margin: 0.3rem;"
                   type="number"
-                  value="50"
+                  value="0"
                 />
                 <label
                   for="Min"
@@ -2724,7 +2124,7 @@ exports[`Testing component 'HomePage' : should render 'HomePage', then change bo
                 name="Min"
                 style="margin: 0.3rem;"
                 type="number"
-                value="50"
+                value="0"
               />
               <label
                 for="Min"
@@ -2755,247 +2155,6 @@ exports[`Testing component 'HomePage' : should render 'HomePage', then change bo
         style="display: flex; flex-direction: row; flex: 1; justify-content: center; flex-wrap: wrap; gap: 1rem; margin: 1rem;"
       >
         Loading
-        <div />
-      </div>
-    </div>
-  </div>
-</div>
-`;
-
-exports[`Testing component 'HomePage' : should render 'HomePage', then change both filters, then preform an infinite scroll 9`] = `
-<div>
-  <div
-    style="max-width: 1200px; margin: auto;"
-  >
-    <div
-      style="display: flex; flex-direction: row; flex: 1; margin: 1rem 0px; justify-content: start;"
-    >
-      <button
-        class="ucm-ui-button"
-        data-testid="filters-button"
-        style="font-size: medium; margin: initial;"
-      >
-        Filters
-      </button>
-    </div>
-    <div
-      data-testid="popup-container"
-      style="display: none; position: fixed; top: 0px; left: 0px; width: 100vw; height: 100vh; background-color: rgba(255, 255, 255, 0.933); overflow: auto; text-align: center;"
-    >
-      <div
-        style="text-align: start; display: inline-block; background-color: lightgray; margin: 3rem;"
-      >
-        <div
-          style="padding: 0px 1rem 1rem; background-color: lightgray; margin: 1rem;"
-        >
-          <div
-            style="padding-top: 1rem;"
-          >
-            <div
-              style="text-align: center;"
-            >
-              <span
-                style="font-size: large; margin: 0px 0px .5rem; display: flex;"
-              >
-                Make
-              </span>
-            </div>
-            <div>
-              <div>
-                <input
-                  checked=""
-                  id="BMW"
-                  name="BMW"
-                  type="checkbox"
-                />
-                <label
-                  for="BMW"
-                >
-                  BMW
-                </label>
-              </div>
-              <div>
-                <input
-                  id="Skoda"
-                  name="Skoda"
-                  type="checkbox"
-                />
-                <label
-                  for="Skoda"
-                >
-                  Skoda
-                </label>
-              </div>
-              <div>
-                <input
-                  id="Volkswagen"
-                  name="Volkswagen"
-                  type="checkbox"
-                />
-                <label
-                  for="Volkswagen"
-                >
-                  Volkswagen
-                </label>
-              </div>
-            </div>
-          </div>
-          <div
-            style="padding-top: 1rem;"
-          >
-            <div
-              style="text-align: center;"
-            >
-              <span
-                style="font-size: large; margin: 0px 0px .5rem; display: flex;"
-              >
-                Power
-              </span>
-            </div>
-            <div>
-              <div>
-                <input
-                  id="Min"
-                  name="Min"
-                  style="margin: 0.3rem;"
-                  type="number"
-                  value="50"
-                />
-                <label
-                  for="Min"
-                  style="margin: 0.3rem;"
-                >
-                  Min
-                </label>
-              </div>
-              <div>
-                <input
-                  id="Max"
-                  name="Max"
-                  style="margin: 0.3rem;"
-                  type="number"
-                  value="60"
-                />
-                <label
-                  for="Max"
-                  style="margin: 0.3rem;"
-                >
-                  Max
-                </label>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div
-      style="display: flex; flex-direction: row; flex: 1; justify-content: center; flex-wrap: wrap; gap: 1rem; margin: auto;"
-    >
-      <div
-        style="padding: 0px 1rem 1rem; background-color: lightgray; margin: 1rem;"
-      >
-        <div
-          style="padding-top: 1rem;"
-        >
-          <div
-            style="text-align: center;"
-          >
-            <span
-              style="font-size: large; margin: 0px 0px .5rem; display: flex;"
-            >
-              Make
-            </span>
-          </div>
-          <div>
-            <div>
-              <input
-                checked=""
-                id="BMW"
-                name="BMW"
-                type="checkbox"
-              />
-              <label
-                for="BMW"
-              >
-                BMW
-              </label>
-            </div>
-            <div>
-              <input
-                id="Skoda"
-                name="Skoda"
-                type="checkbox"
-              />
-              <label
-                for="Skoda"
-              >
-                Skoda
-              </label>
-            </div>
-            <div>
-              <input
-                id="Volkswagen"
-                name="Volkswagen"
-                type="checkbox"
-              />
-              <label
-                for="Volkswagen"
-              >
-                Volkswagen
-              </label>
-            </div>
-          </div>
-        </div>
-        <div
-          style="padding-top: 1rem;"
-        >
-          <div
-            style="text-align: center;"
-          >
-            <span
-              style="font-size: large; margin: 0px 0px .5rem; display: flex;"
-            >
-              Power
-            </span>
-          </div>
-          <div>
-            <div>
-              <input
-                id="Min"
-                name="Min"
-                style="margin: 0.3rem;"
-                type="number"
-                value="50"
-              />
-              <label
-                for="Min"
-                style="margin: 0.3rem;"
-              >
-                Min
-              </label>
-            </div>
-            <div>
-              <input
-                id="Max"
-                name="Max"
-                style="margin: 0.3rem;"
-                type="number"
-                value="60"
-              />
-              <label
-                for="Max"
-                style="margin: 0.3rem;"
-              >
-                Max
-              </label>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div
-        style="display: flex; flex-direction: row; flex: 1; justify-content: center; flex-wrap: wrap; gap: 1rem; margin: 1rem;"
-      >
-        Error Loading, please try again later :(
         <div />
       </div>
     </div>
