@@ -1,6 +1,6 @@
-import { Component, createRef } from "react";
+import { Component, createRef, HTMLProps } from "react";
 
-export interface InViewportProps {
+export interface InViewportProps extends HTMLProps<HTMLDivElement> {
   onVisibilityChanged: (action: "entered" | "left") => void;
 }
 
@@ -19,6 +19,6 @@ export class InViewport extends Component<InViewportProps> {
   }
 
   render() {
-    return <div ref={this.ref} />;
+    return <div {...this.props} ref={this.ref} />;
   }
 }

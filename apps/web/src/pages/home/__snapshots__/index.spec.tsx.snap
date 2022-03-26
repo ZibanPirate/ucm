@@ -38,7 +38,16 @@ exports[`Testing component 'HomePage' : should render 'HomePage', then change bo
         style="display: flex; flex-direction: row; flex: 1; justify-content: center; flex-wrap: wrap; gap: 1rem; margin: 1rem;"
       >
         Loading
-        <div />
+        <div
+          style="width: 100%; text-align: center;"
+        >
+          <button
+            class="ucm-ui-button"
+            style="font-size: medium; margin: initial;"
+          >
+            Load more
+          </button>
+        </div>
       </div>
     </div>
   </div>
@@ -442,7 +451,16 @@ exports[`Testing component 'HomePage' : should render 'HomePage', then change bo
             See more
           </button>
         </div>
-        <div />
+        <div
+          style="width: 100%; text-align: center;"
+        >
+          <button
+            class="ucm-ui-button"
+            style="font-size: medium; margin: initial;"
+          >
+            Load more
+          </button>
+        </div>
       </div>
     </div>
   </div>
@@ -683,7 +701,16 @@ exports[`Testing component 'HomePage' : should render 'HomePage', then change bo
         style="display: flex; flex-direction: row; flex: 1; justify-content: center; flex-wrap: wrap; gap: 1rem; margin: 1rem;"
       >
         Loading
-        <div />
+        <div
+          style="width: 100%; text-align: center;"
+        >
+          <button
+            class="ucm-ui-button"
+            style="font-size: medium; margin: initial;"
+          >
+            Load more
+          </button>
+        </div>
       </div>
     </div>
   </div>
@@ -1013,7 +1040,16 @@ exports[`Testing component 'HomePage' : should render 'HomePage', then change bo
             See more
           </button>
         </div>
-        <div />
+        <div
+          style="width: 100%; text-align: center;"
+        >
+          <button
+            class="ucm-ui-button"
+            style="font-size: medium; margin: initial;"
+          >
+            Load more
+          </button>
+        </div>
       </div>
     </div>
   </div>
@@ -1343,7 +1379,16 @@ exports[`Testing component 'HomePage' : should render 'HomePage', then change bo
             See more
           </button>
         </div>
-        <div />
+        <div
+          style="width: 100%; text-align: center;"
+        >
+          <button
+            class="ucm-ui-button"
+            style="font-size: medium; margin: initial;"
+          >
+            Load more
+          </button>
+        </div>
       </div>
     </div>
   </div>
@@ -1673,7 +1718,16 @@ exports[`Testing component 'HomePage' : should render 'HomePage', then change bo
             See more
           </button>
         </div>
-        <div />
+        <div
+          style="width: 100%; text-align: center;"
+        >
+          <button
+            class="ucm-ui-button"
+            style="font-size: medium; margin: initial;"
+          >
+            Load more
+          </button>
+        </div>
       </div>
     </div>
   </div>
@@ -1914,7 +1968,16 @@ exports[`Testing component 'HomePage' : should render 'HomePage', then change bo
         style="display: flex; flex-direction: row; flex: 1; justify-content: center; flex-wrap: wrap; gap: 1rem; margin: 1rem;"
       >
         Loading
-        <div />
+        <div
+          style="width: 100%; text-align: center;"
+        >
+          <button
+            class="ucm-ui-button"
+            style="font-size: medium; margin: initial;"
+          >
+            Load more
+          </button>
+        </div>
       </div>
     </div>
   </div>
@@ -2155,7 +2218,16 @@ exports[`Testing component 'HomePage' : should render 'HomePage', then change bo
         style="display: flex; flex-direction: row; flex: 1; justify-content: center; flex-wrap: wrap; gap: 1rem; margin: 1rem;"
       >
         Loading
-        <div />
+        <div
+          style="width: 100%; text-align: center;"
+        >
+          <button
+            class="ucm-ui-button"
+            style="font-size: medium; margin: initial;"
+          >
+            Load more
+          </button>
+        </div>
       </div>
     </div>
   </div>

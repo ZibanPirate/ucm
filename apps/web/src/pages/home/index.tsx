@@ -75,11 +75,6 @@ export const HomePage: NextPage<{ graphQLFilters?: string[] }> = ({ graphQLFilte
     setFilters(carsQueryResultFiltersToHomePageFilters(data.cars.filters, filtersOnURLQuery));
   }, [data?.cars.filters]);
 
-  // When the user navigates to HomePage, refresh Query if the variable are different
-  useEffect(() => {
-    // refetch();
-  }, []);
-
   // DRYed the FiltersComponent for responsive rendering bellow:
   const FiltersComponent = () => (
     <Filters
@@ -117,6 +112,13 @@ export const HomePage: NextPage<{ graphQLFilters?: string[] }> = ({ graphQLFilte
     />
   );
 
+  const loadMore = async () => {
+    const skip = data?.cars.result.length || 0;
+    const { graphQLQueryFilters } = extractSelectedFilters(filters || []);
+
+    const moreResults = await fetchMore({ variables: { skip, graphQLQueryFilters } });
+    setInfiniteScroll({ eod: moreResults.data.cars.result.length <= 0 });
+  };
   const title = "Used Car Market";
 
   return (
@@ -172,12 +174,13 @@ export const HomePage: NextPage<{ graphQLFilters?: string[] }> = ({ graphQLFilte
           <InViewport
             onVisibilityChanged={async (action) => {
               if (action === "entered" && !infiniteScroll.eod) {
-                const skip = data?.cars.result.length || 0;
-                const moreResults = await fetchMore({ variables: { skip } });
-                setInfiniteScroll({ eod: moreResults.data.cars.result.length <= 0 });
+                await loadMore();
               }
             }}
-          />
+            style={{ width: "100%", textAlign: "center" }}
+          >
+            {infiniteScroll.eod ? null : <Button onClick={loadMore}>Load more</Button>}
+          </InViewport>
         </Grid>
       </Grid>
     </Container>
